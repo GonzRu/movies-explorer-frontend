@@ -1,0 +1,11 @@
+.navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navigation__login {
+    width: 76px;
+    height: 32px;
+    margin-left: 30px;
+}

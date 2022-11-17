@@ -1,11 +1,17 @@
 import React from 'react';
-import Navigation from '../Navigation/Navigation';
+import Navigation from './Navigation/Navigation';
+import Logo from './Logo/Logo';
+import './Header.css'
 
-const Header = () => {
+const Header = ({isAccent}) => {
+
+    const headerClassName = isAccent
+    ? 'header header_color_accent' : 'header';
     return (
-        <div>
+        <header className={headerClassName}>
+            <Logo/>
             <Navigation/>
-        </div>
+        </header>
     );
 };
 
