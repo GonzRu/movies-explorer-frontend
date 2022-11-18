@@ -1,0 +1,44 @@
+.aboutProject {
+    padding: 110px 70px;
+}
+
+.aboutProject__title {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 0 0 23px;
+}
+
+.aboutProject__delimiter {
+    border-bottom: black solid 1px;
+}
+
+.aboutProject__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 70px;
+    gap: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .aboutProject {
+        padding: 90px 50px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .aboutProject {
+        padding: 70px 18px;
+    }
+
+    .aboutProject__title {
+        margin-bottom: 28px;
+    }
+
+    .aboutProject__wrapper {
+        grid-template-columns: 1fr;
+        margin-top: 60px;
+        gap: 30px;
+    }
+}
+

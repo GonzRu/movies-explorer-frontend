@@ -1,0 +1,30 @@
+.aboutProjectItem {
+
+}
+
+.aboutProjectItem__title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    margin: 0 0 26px;
+}
+
+.aboutProjectItem__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+}
+
+@media screen and (max-width: 320px) {
+    .aboutProjectItem__title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .aboutProjectItem__text {
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
