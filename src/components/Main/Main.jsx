@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import Promo from './Promo/Promo';
 
 class Main extends Component {
     render() {
         return (
-            <div>
-                Main
+            <div className='main'>
+                <Promo/>
             </div>
         );
     }
