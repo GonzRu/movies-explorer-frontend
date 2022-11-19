@@ -2,17 +2,6 @@
     padding: 110px 70px;
 }
 
-.aboutProject__title {
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 27px;
-    margin: 0 0 23px;
-}
-
-.aboutProject__delimiter {
-    border-bottom: black solid 1px;
-}
-
 .aboutProject__wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

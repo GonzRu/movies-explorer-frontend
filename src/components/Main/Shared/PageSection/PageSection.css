@@ -1,0 +1,30 @@
+.pageSection {
+    padding: 110px 70px;
+}
+
+.pageSection_accent {
+    background-color: #F5F5F5;
+}
+
+.pageSection__title {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 0 0 23px;
+}
+
+.pageSection__delimiter {
+    border-bottom: black solid 1px;
+}
+
+@media screen and (max-width: 768px) {
+    .pageSection {
+        padding: 90px 50px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .pageSection {
+        padding: 70px 18px;
+    }
+}

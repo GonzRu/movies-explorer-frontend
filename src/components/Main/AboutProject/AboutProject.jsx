@@ -2,12 +2,11 @@ import React from 'react';
 import AboutProjectItem from './AboutProjectItem/AboutProjectItem';
 import Durations from './Durations/Durations';
 import './AboutProject.css';
+import PageSection from '../Shared/PageSection/PageSection';
 
 const AboutProject = () => {
     return (
-        <div className='aboutProject'>
-            <h2 className='aboutProject__title'>О проекте</h2>
-            <div className='aboutProject__delimiter'></div>
+        <PageSection title='О проекте'>
             <div className='aboutProject__wrapper'>
                 <AboutProjectItem
                     title='Дипломный проект включал 5 этапов'
@@ -19,7 +18,7 @@ const AboutProject = () => {
                 />
             </div>
             <Durations/>
-        </div>
+        </PageSection>
     );
 };
 
