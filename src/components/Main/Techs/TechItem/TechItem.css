@@ -1,0 +1,20 @@
+.techItem {
+    background: #E8E8E8;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.04em;
+    width: 90px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .techItem {
+        width: 84px;
+        height: 57px;
+    }
+}
