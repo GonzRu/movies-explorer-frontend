@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {NavLink} from 'react-router-dom';
 import './AppLink.css'
 
@@ -22,4 +22,4 @@ const AppLink = (props) => {
     );
 };
 
-export default AppLink;
+export default memo(AppLink);

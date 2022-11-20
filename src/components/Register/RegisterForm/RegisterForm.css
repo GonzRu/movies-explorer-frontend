@@ -1,0 +1,10 @@
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.registerForm__submitBtn {
+    margin-top: auto;
+}

@@ -8,6 +8,7 @@
     font-size: 12px;
     line-height: 16px;
     cursor: pointer;
+    height: 45px;
 }
 
 .btn:hover {
