@@ -1,0 +1,40 @@
+.login {
+    max-width: 396px;
+    min-width: 296px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.login__header {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    margin: 40px 0 40px;
+}
+
+.login__alreadyRegisteredRow {
+    align-self: center;
+    margin-top: 16px;
+}
+
+.login__alreadyRegisteredText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A0A0A0;
+    margin-right: 6px;
+}
+
+@media screen and (max-width: 500px) {
+    .login {
+        flex: 1;
+        margin: 56px auto 30px;
+    }
+    .login__logo, .login__header {
+        align-self: center;
+    }
+}

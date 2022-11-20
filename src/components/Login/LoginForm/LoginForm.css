@@ -1,0 +1,10 @@
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.loginForm__submitBtn {
+    margin-top: auto;
+}
