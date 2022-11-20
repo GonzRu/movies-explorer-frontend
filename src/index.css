@@ -4,3 +4,7 @@
 :root {
     --acent-color: #F3C1F8;
 }
+
+html, body, #root {
+    height: 100%;
+}
