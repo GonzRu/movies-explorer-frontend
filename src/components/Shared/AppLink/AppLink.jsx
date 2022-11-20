@@ -10,11 +10,11 @@ const AppLink = (props) => {
         className
     } = props;
 
-    const appLinkClassName = className ? `appLink ${className}` : 'appLink';
+    const rootClasses = className ? `appLink ${className}` : 'appLink';
 
     return (
         <NavLink
-            className={appLinkClassName}
+            className={rootClasses}
             to={to}
         >
             {children}

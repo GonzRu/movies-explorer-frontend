@@ -1,0 +1,84 @@
+.footer {
+    padding: 0 70px;
+}
+
+.footer__description {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #A0A0A0;
+}
+
+.footer__row {
+    border-top: #E8E8E8 solid 1px;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 20px;
+}
+
+.footer_copyright {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.footer__links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer__link {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.footer__link_type_praktikum {
+
+}
+
+.footer__link_type_github {
+
+}
+
+@media screen and (max-width: 1024px) {
+    .footer {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .footer__row {
+        grid-template-columns: none;
+        row: repeat(3, auto);
+        justify-content: center;
+    }
+
+    .footer__link {
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+    }
+
+    .footer_copyright {
+        font-size: 12px;
+        line-height: 15px;
+        color: #A0A0A0;
+        text-align: center;
+    }
+
+    .footer__link_type_praktikum {
+        grid-row: 1/2;
+    }
+    .footer__link_type_github {
+        grid-row: 2/3;
+    }
+    .footer_copyright {
+        grid-row: 3/4;
+        margin-top: 10px;
+    }
+}
