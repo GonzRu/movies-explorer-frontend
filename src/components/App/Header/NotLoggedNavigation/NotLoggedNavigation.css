@@ -1,0 +1,11 @@
+.notLoggedNavigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notLoggedNavigation__login {
+    width: 76px;
+    height: 32px;
+    margin-left: 30px;
+}

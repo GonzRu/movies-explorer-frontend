@@ -1,0 +1,14 @@
+.menuIcon {
+  display: none;
+}
+
+.menuIcon:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .menuIcon {
+        display: block;
+    }
+}

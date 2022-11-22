@@ -1,30 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Navigation.css'
-import {NavLink, useHistory} from 'react-router-dom';
-import Button from '../../../Shared/Button/Button';
-import {LOGIN_ROUTE, REGISTER_ROUTE} from '../../../../consts/routes';
-import AppLink from '../../../Shared/AppLink/AppLink';
+import CurrentUserContext from '../../../../contexts/CurrentUserContext';
+import NotLoggedNavigation from '../NotLoggedNavigation/NotLoggedNavigation';
+import LoggedNavigation from '../LoggedNavigation/LoggedNavigation';
 
 const Navigation = () => {
-    const history = useHistory();
 
-    const onLoginClickHandler = () => {
-        history.push(LOGIN_ROUTE)
+    const [currentUser] = useContext(CurrentUserContext);
+
+    if (!currentUser) {
+        return (<NotLoggedNavigation/>)
     }
 
-    return (
-        <div className='navigation'>
-            <AppLink to={REGISTER_ROUTE}>
-                Регистрация
-            </AppLink>
-            <Button
-                className='navigation__login'
-                onClick={onLoginClickHandler}
-            >
-                Войти
-            </Button>
-        </div>
-    );
+    return (<LoggedNavigation/>);
+
 };
 
 export default Navigation;

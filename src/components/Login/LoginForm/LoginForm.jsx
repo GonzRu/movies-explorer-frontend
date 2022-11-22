@@ -1,9 +1,15 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 import InputWithLabel from '../../Shared/InputWithLabel/InputWithLabel';
 import Button from '../../Shared/Button/Button';
 import './LoginForm.css';
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
+import {useHistory} from 'react-router-dom';
+import {MOVIES_ROUTE} from '../../../consts/routes';
 
 const LoginForm = () => {
+
+    const history = useHistory();
+    const [_, setCurrentUser] = useContext(CurrentUserContext);
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
@@ -13,6 +19,13 @@ const LoginForm = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+        setCurrentUser({
+            name: 'Денис',
+            email: 'test@mail.ru'
+        })
+
+        history.push(MOVIES_ROUTE);
     }
 
     return (
@@ -31,7 +44,7 @@ const LoginForm = () => {
             <Button type='submit'
                     className='registerForm__submitBtn'
             >
-                Зарегистрироваться
+                Войти
             </Button>
         </form>
     );
