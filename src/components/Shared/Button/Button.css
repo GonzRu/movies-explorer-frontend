@@ -13,4 +13,17 @@
 
 .btn:hover {
     opacity: 0.8;
+    background: #efefef;
+}
+
+.btn_color_grey {
+    background: #F9F9F9;
+    border-radius: 6px;
+    color: #000000;
+}
+
+.btn_color_grey:hover {
+    background: #dbdbdb;
+    border-radius: 6px;
+    color: #000000;
 }

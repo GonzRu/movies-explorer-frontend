@@ -1,0 +1,27 @@
+.movies {
+    padding: 0 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.movies__separator {
+    border-bottom: #E8E8E8 1px solid;
+}
+
+.movies__moreBtn {
+    margin-top: 50px;
+    margin-bottom: 80px;
+    align-self: stretch;
+}
+
+@media screen and (max-width: 1024px) {
+    .movies {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .movies {
+        padding: 0 10px;
+    }
+}

@@ -1,0 +1,24 @@
+.moviesCardLike {
+    border-radius: 36px;
+    width: 24px;
+    height:  24px;
+    background-color: #F9F9F9;
+    background-image: url(../../../images/like.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.moviesCardLike:hover {
+    background-image: url(../../../images/like_liked.png);
+    opacity: 0.6;
+}
+
+.moviesCardLike_liked {
+    background-image: url(../../../images/like_liked.png);
+}
+
+.moviesCardLike_liked:hover {
+    background-image: url(../../../images/close.svg);
+    background-size: 10px 10px;
+}

@@ -1,10 +1,28 @@
 import React from 'react';
+import './MoviesCard.css';
+import MoviesCardLike from '../MoviesCardLike/MoviesCardLike';
 
-const MoviesCard = () => {
+
+const MoviesCard = ({movie}) => {
     return (
-        <div>
-
-        </div>
+        <li className='moviesCard'>
+            <img
+                src={movie.img}
+                alt={movie.name}
+            />
+            <div className='moviesCard__nameContainer'>
+                <span className='moviesCard__name'>
+                    {movie.name}
+                </span>
+                <MoviesCardLike
+                    isLiked={movie.liked}
+                    onChange={(liked) => {}}
+                />
+            </div>
+            <span className='moviesCard__duration'>
+                {movie.duration}
+            </span>
+        </li>
     );
 };
 
