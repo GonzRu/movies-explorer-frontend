@@ -10,3 +10,14 @@
     color: #000000;
     padding-left: 15px;
 }
+
+.input_style_profile {
+    height: 14px;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: right;
+    background: none;
+    border: none;
+    padding: 0;
+}

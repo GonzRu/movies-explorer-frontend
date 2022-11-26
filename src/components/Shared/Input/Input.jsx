@@ -8,18 +8,20 @@ const Input = (props) => {
         value,
         onValueChanged,
         className,
-        placeholder
+        style,
+        ...otherProps
     } = props;
 
     return (
         <input
             className={classNames(
                 'input',
+                `input_style_${style}`,
                 className
             )}
             value={value}
             onChange={(e) => onValueChanged?.(e.target.value)}
-            placeholder={placeholder}
+            {...otherProps}
         />
     );
 };

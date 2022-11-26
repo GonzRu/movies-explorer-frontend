@@ -1,5 +1,5 @@
 .footer {
-    padding: 0 70px;
+    padding: 79px 70px 0;
 }
 
 .footer__description {
@@ -47,11 +47,15 @@
 
 @media screen and (max-width: 1024px) {
     .footer {
-        padding: 0 30px;
+        padding: 79px 30px 0;
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
+    .footer {
+        padding: 79px 10px 0;
+    }
+
     .footer__row {
         grid-template-columns: none;
         row: repeat(3, auto);
