@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import './SearchForm.css';
+import './MoviesSearchForm.css';
 import searchBtn from '../../../images/search-btn.svg';
-import Switch from '../../Shared/Switch/Switch';
+import Switch from '../Switch/Switch';
 
-const SearchForm = () => {
+const MoviesSearchForm = () => {
 
     const [shortFilmOnly, setShortFilmOnly] = useState(false);
 
@@ -43,4 +43,4 @@ const SearchForm = () => {
     );
 };
 
-export default SearchForm;
+export default MoviesSearchForm;

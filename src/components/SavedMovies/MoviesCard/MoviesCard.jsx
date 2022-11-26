@@ -1,10 +1,28 @@
 import React from 'react';
+import './MoviesCard.css';
 
-const MoviesCard = () => {
+const MoviesCard = ({movie}) => {
     return (
-        <div>
+        <li className='savedMoviesCard'>
+            <img
+                src={movie.img}
+                alt={movie.name}
+            />
+            <div className='savedMoviesCard__nameContainer'>
+                <span className='savedMoviesCard__name'>
+                    {movie.name}
+                </span>
 
-        </div>
+                <button
+                    className='savedMoviesCard__removeBtn'
+                    type='button'
+                    onClick={() => {}}
+                />
+            </div>
+            <span className='savedMoviesCard__duration'>
+                {movie.duration}
+            </span>
+        </li>
     );
 };
 

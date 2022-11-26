@@ -10,7 +10,8 @@ const MoviesCardLike = ({isLiked, onChange}) => {
     };
 
     return (
-        <div
+        <button
+            type='button'
             className={classNames(
                 'moviesCardLike',
                 isLiked && 'moviesCardLike_liked'
