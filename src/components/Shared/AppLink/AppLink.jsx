@@ -1,21 +1,32 @@
 import React, {memo} from 'react';
 import {NavLink} from 'react-router-dom';
 import './AppLink.css'
+import classNames from 'classnames';
 
 const AppLink = (props) => {
 
     const {
         to,
         children,
-        className
+        className,
+        onClick,
     } = props;
 
-    const rootClasses = className ? `appLink ${className}` : 'appLink';
+    const clickHandler = onClick
+    ? (e) => {
+        e.preventDefault();
+        onClick();
+    }
+    : null;
 
     return (
         <NavLink
-            className={rootClasses}
-            to={to}
+            className={classNames(
+                'appLink',
+                className
+            )}
+            onClick={clickHandler}
+            to={onClick ? '/' : to}
         >
             {children}
         </NavLink>

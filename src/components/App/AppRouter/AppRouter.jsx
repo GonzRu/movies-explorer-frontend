@@ -7,6 +7,7 @@ import Profile from '../../Profile/Profile';
 import SavedMovies from '../../SavedMovies/SavedMovies';
 import Movies from '../../Movies/Movies';
 import Layout from '../Layout/Layout';
+import NotFound from '../../NotFound/NotFound';
 
 class AppRouter extends Component {
     render() {
@@ -14,13 +15,11 @@ class AppRouter extends Component {
             <Switch>
                 <Route exact path='/signin' children={<Login/>}/>
                 <Route exact path='/signup' children={<Register/>}/>
-
-                <Layout>
-                    <Route exact path='/' children={<Main/>}/>
-                    <Route exact path='/movies' children={<Movies/>}/>
-                    <Route exact path='/saved-movies' children={<SavedMovies/>}/>
-                    <Route exact path='/profile' children={<Profile/>}/>
-                </Layout>
+                <Route exact path='/' children={<Layout><Main/></Layout>}/>
+                <Route exact path='/movies' children={<Layout><Movies/></Layout>}/>
+                <Route exact path='/saved-movies' children={<Layout><SavedMovies/></Layout>}/>
+                <Route exact path='/profile' children={<Layout><Profile/></Layout>}/>
+                <Route children={<NotFound/>}/>
             </Switch>
         );
     }
