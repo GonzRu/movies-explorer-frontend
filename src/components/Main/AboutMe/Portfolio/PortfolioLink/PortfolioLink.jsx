@@ -3,10 +3,24 @@ import './PortfolioLink.css';
 
 function PortfolioLink({ name, link }) {
   return (
-    <div className="portfolioLink">
-      <a className="portfolioLink__name" href={link}>{name}</a>
-      <a className="portfolioLink__link" href={link}>↗</a>
-    </div>
+    <li className="portfolioLink">
+      <a
+        className="portfolioLink__name"
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {name}
+      </a>
+      <a
+        className="portfolioLink__link"
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+      >
+        ↗
+      </a>
+    </li>
   );
 }
 

@@ -1,16 +1,16 @@
 import React from 'react';
-import './PortfolioLinks.css';
 import PortfolioLink from '../PortfolioLink/PortfolioLink';
+import './PortfolioLinks.css';
 
 const portfolio = [
-  { name: 'Статичный сайт', link: '' },
-  { name: 'Адаптивный сайт', link: '' },
-  { name: 'Одностраничное приложение', link: '' },
+  { name: 'Статичный сайт', link: 'https://gonzru.github.io/how-to-learn/' },
+  { name: 'Адаптивный сайт', link: 'https://gonzru.github.io/russian-travel/' },
+  { name: 'Одностраничное приложение', link: 'https://github.com/GonzRu/react-mesto-api-full' },
 ];
 
 function PortfolioLinks() {
   return (
-    <div className="portfolioLinks">
+    <ul className="portfolioLinks">
       {portfolio.map((item) => (
         <PortfolioLink
           key={item.name}
@@ -18,7 +18,7 @@ function PortfolioLinks() {
           link={item.link}
         />
       ))}
-    </div>
+    </ul>
   );
 }
 
