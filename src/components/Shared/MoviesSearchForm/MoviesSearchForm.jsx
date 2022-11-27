@@ -17,6 +17,7 @@ function MoviesSearchForm() {
         <img
           className="searchForm__searchBtn"
           src={searchBtn}
+          alt='Кнопка поиска'
         />
         <div className="searchForm__wideSliderWrapper">
           <Switch
