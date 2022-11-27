@@ -13,7 +13,7 @@ function PageSection(props) {
   } = props;
 
   return (
-    <div className={classNames(
+    <section className={classNames(
       'pageSection',
       className,
       accent && 'pageSection_accent',
@@ -30,7 +30,7 @@ function PageSection(props) {
       <div className={contentClasses}>
         {children}
       </div>
-    </div>
+    </section>
   );
 }
 

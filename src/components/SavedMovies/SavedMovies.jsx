@@ -5,11 +5,11 @@ import MoviesCardList from './MoviesCardList/MoviesCardList';
 
 function SavedMovies() {
   return (
-    <div className="savedMovies">
+    <main className="savedMovies">
       <MoviesSearchForm />
       <div className="movies__separator" />
       <MoviesCardList />
-    </div>
+    </main>
   );
 }
 

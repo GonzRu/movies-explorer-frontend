@@ -7,7 +7,7 @@ import LoginForm from './LoginForm/LoginForm';
 
 function Login() {
   return (
-    <div className="login">
+    <main className="login">
       <Logo className="login__logo" />
       <h1 className="login__header">Рады видеть!</h1>
       <LoginForm />
@@ -15,7 +15,7 @@ function Login() {
         <span className="login__alreadyRegisteredText">Ещё не зарегистрированы?</span>
         <AppLink to={REGISTER_ROUTE}>Регистрация</AppLink>
       </div>
-    </div>
+    </main>
   );
 }
 

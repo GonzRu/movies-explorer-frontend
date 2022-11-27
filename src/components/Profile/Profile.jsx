@@ -21,7 +21,7 @@ function Profile() {
   const onSaveClick = () => setEditMode(false);
 
   return (
-    <div className="profile">
+    <main className="profile">
       <h1 className="profile__title">
         Привет,
         {currentUser.name}
@@ -68,7 +68,7 @@ function Profile() {
                 </>
               )
         }
-    </div>
+    </main>
   );
 }
 

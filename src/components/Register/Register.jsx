@@ -7,7 +7,7 @@ import RegisterForm from './RegisterForm/RegisterForm';
 
 function Register() {
   return (
-    <div className="register">
+    <main className="register">
       <Logo className="register__logo" />
       <h1 className="register__header">Добро пожаловать!</h1>
       <RegisterForm />
@@ -15,7 +15,7 @@ function Register() {
         <span className="register__alreadyRegisteredText">Уже зарегистрированы?</span>
         <AppLink to={LOGIN_ROUTE}>Войти</AppLink>
       </div>
-    </div>
+    </main>
   );
 }
 
