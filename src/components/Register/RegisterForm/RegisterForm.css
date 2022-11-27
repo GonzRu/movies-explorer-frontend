@@ -5,12 +5,10 @@
 }
 
 .registerForm__submitBtn {
-    margin-top: 49px;
+    margin-top: 153px;
 }
 
 @media screen and (max-width: 1024px) {
-    .registerForm {
-    }
     .registerForm__submitBtn {
         margin-top: 40px;
     }

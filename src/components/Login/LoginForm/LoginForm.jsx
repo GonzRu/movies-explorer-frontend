@@ -35,6 +35,7 @@ function LoginForm() {
         onValueChanged={onEmailChanged}
       />
       <InputWithLabel
+        className="loginForm__lastInput"
         label="Пароль"
         value={password}
         onValueChanged={onPasswordChanged}
@@ -42,7 +43,7 @@ function LoginForm() {
       />
       <Button
         type="submit"
-        className="registerForm__submitBtn"
+        className="loginForm__submitBtn"
       >
         Войти
       </Button>

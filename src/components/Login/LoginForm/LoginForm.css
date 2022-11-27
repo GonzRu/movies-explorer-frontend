@@ -6,5 +6,24 @@
 }
 
 .loginForm__submitBtn {
-    margin-top: auto;
+    margin-top: 153px;
+}
+
+@media screen and (max-width: 1024px) {
+    .loginForm__submitBtn {
+        margin-top: 153px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .loginForm {
+        flex: 1;
+        gap: 20px;
+    }
+    .loginForm__lastInput {
+        flex: 1;
+    }
+    .loginForm__submitBtn {
+        margin-top: 0px;
+    }
 }
