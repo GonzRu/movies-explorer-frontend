@@ -2,10 +2,9 @@ import React from 'react';
 import './Switch.css';
 
 function Switch({ checked, onChange, label }) {
-
-    const changeHandler = (e) => {
-        onChange?.(e.target.checked)
-    };
+  const changeHandler = (e) => {
+    onChange?.(e.target.checked);
+  };
 
   return (
     <div className="container">

@@ -8,7 +8,7 @@ function SideBar({ visible, onCLose }) {
     if (e.key === 'Escape') {
       onCLose();
     }
-  }, []);
+  }, [onCLose]);
 
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
@@ -16,7 +16,7 @@ function SideBar({ visible, onCLose }) {
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, []);
+  }, [onKeyDown]);
 
   return (
     <div className={classNames(

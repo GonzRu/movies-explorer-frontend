@@ -1,8 +1,8 @@
 import React from 'react';
+import classNames from 'classnames';
 import AppLink from '../../../../Shared/AppLink/AppLink';
 import { PROFILE_ROUTE } from '../../../../../consts/routes';
 import './ProfileButton.css';
-import classNames from 'classnames';
 
 function ProfileButton({ className }) {
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import './SideBarContent.css';
 import classNames from 'classnames';
-import closeIcon from '../../../../../images/close.svg';
 import AppLink from '../../../../Shared/AppLink/AppLink';
 import { MAIN_ROUTE, MOVIES_ROUTE, SAVED_MOVIES_ROUTE } from '../../../../../consts/routes';
 import ProfileButton from '../ProfileButton/ProfileButton';
@@ -13,10 +12,9 @@ function SideBarContent({ visible, onClose }) {
       visible && 'sideBarContent_visible',
     )}
     >
-      <img
+      <button
+        type="button"
         className="sideBarContent__closeBtn"
-        src={closeIcon}
-        alt="Кнопка закрытия"
         onClick={onClose}
       />
       <div className="sideBarContent__links">

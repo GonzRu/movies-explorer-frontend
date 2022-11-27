@@ -5,7 +5,7 @@ import NotLoggedNavigation from '../NotLoggedNavigation/NotLoggedNavigation';
 import LoggedNavigation from '../LoggedNavigation/LoggedNavigation';
 
 function Navigation() {
-  const {currentUser} = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
 
   if (!currentUser) {
     return (<NotLoggedNavigation />);

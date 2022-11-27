@@ -1,14 +1,12 @@
 import React from 'react';
-import menu from '../../../../../images/menu.svg';
 import './MenuIcon.css';
 
 function MenuIcon({ onClick }) {
   return (
-    <img
+    <button
+      type="button"
       onClick={onClick}
       className="menuIcon"
-      src={menu}
-      alt="Меню"
     />
   );
 }

@@ -15,7 +15,7 @@ function MoviesCard({ movie }) {
         </span>
         <MoviesCardLike
           isLiked={movie.liked}
-          onChange={(liked) => {}}
+          onChange={() => {}}
         />
       </div>
       <span className="moviesCard__duration">

@@ -1,9 +1,9 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import AppLink from '../../../Shared/AppLink/AppLink';
 import { LOGIN_ROUTE, REGISTER_ROUTE } from '../../../../consts/routes';
 import Button from '../../../Shared/Button/Button';
 import './NotLoggedNavigation.css';
-import { useHistory } from 'react-router-dom';
 
 function NotLoggedNavigation() {
   const history = useHistory();

@@ -22,7 +22,24 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "airbnb"
+    ],
+    "rules": {
+      "validation(react/prop-types)": "off",
+      "react/prop-types": "off",
+      "react/jsx-props-no-spreading": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "jsx-a11y/control-has-associated-label": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "react/button-has-type": "off"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.js?(x)"
+        ]
+      }
     ]
   },
   "browserslist": {
@@ -36,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4"
   }
 }

@@ -5,15 +5,15 @@ import InputWithLabel from './InputWithLabel/InputWithLabel';
 import Button from '../Shared/Button/Button';
 
 function Profile() {
-  const {currentUser} = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [editMode, setEditMode] = useState(false);
 
-    useEffect(() => {
-        setName(currentUser?.name ?? '');
-        setEmail(currentUser?.email ?? '');
-    }, [currentUser]);
+  useEffect(() => {
+    setName(currentUser?.name ?? '');
+    setEmail(currentUser?.email ?? '');
+  }, [currentUser]);
 
   if (!currentUser) return null;
 
@@ -40,33 +40,33 @@ function Profile() {
         onValueChanged={(value) => setEmail(value)}
         readOnly={!editMode}
       />
-        {
+      {
             editMode
-            ? (
+              ? (
                 <Button
-                    onClick={onSaveClick}
-                className='profile__saveBtn'
+                  onClick={onSaveClick}
+                  className="profile__saveBtn"
                 >
-                    Сохранить
+                  Сохранить
                 </Button>
-                )
-                : (
-                    <>
-                    <button
-                        type="button"
-                        className="profile__editBtn"
-                        onClick={onEditClick}
-                    >
-                        Редактировать
-                    </button>
-                        <button
-                            type="button"
-                            className="profile__logoutBtn"
-                        >
-                            Выйти из аккаунта
-                        </button>
-                    </>
-                )
+              )
+              : (
+                <>
+                  <button
+                    type="button"
+                    className="profile__editBtn"
+                    onClick={onEditClick}
+                  >
+                    Редактировать
+                  </button>
+                  <button
+                    type="button"
+                    className="profile__logoutBtn"
+                  >
+                    Выйти из аккаунта
+                  </button>
+                </>
+              )
         }
     </div>
   );

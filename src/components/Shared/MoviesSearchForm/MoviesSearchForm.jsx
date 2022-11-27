@@ -17,11 +17,11 @@ function MoviesSearchForm() {
         <img
           className="searchForm__searchBtn"
           src={searchBtn}
-          alt='Кнопка поиска'
+          alt="Кнопка поиска"
         />
         <div className="searchForm__wideSliderWrapper">
           <Switch
-              checked={shortFilmOnly}
+            checked={shortFilmOnly}
             onChange={(value) => setShortFilmOnly(value)}
             label="Короткометражки"
           />
@@ -30,7 +30,7 @@ function MoviesSearchForm() {
 
       <div className="searchForm__shotSlideWrapper">
         <Switch
-            checked={shortFilmOnly}
+          checked={shortFilmOnly}
           onChange={(value) => setShortFilmOnly(value)}
           label="Короткометражки"
         />

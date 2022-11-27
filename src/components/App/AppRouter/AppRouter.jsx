@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Main from '../../Main/Main';
 import Register from '../../Register/Register';
@@ -10,34 +10,32 @@ import Layout from '../Layout/Layout';
 import NotFound from '../../NotFound/NotFound';
 import LayoutWithoutFooter from '../Layout/LayoutWithoutFooter';
 
-class AppRouter extends Component {
-  render() {
-    return (
-      <Switch>
-        <Route exact path="/signin">
-            <Login/>
-        </Route>
-        <Route exact path="/signup">
-            <Register />
-        </Route>
-        <Route exact path="/">
-            <Layout><Main /></Layout>
-        </Route>
-        <Route exact path="/movies">
-            <Layout><Movies /></Layout>
-        </Route>
-        <Route exact path="/saved-movies">
-            <Layout><SavedMovies /></Layout>
-        </Route>
-        <Route exact path="/profile">
-            <LayoutWithoutFooter><Profile /></LayoutWithoutFooter>
-        </Route>
-        <Route>
-            <NotFound />
-        </Route>
-      </Switch>
-    );
-  }
+function AppRouter() {
+  return (
+    <Switch>
+      <Route exact path="/signin">
+        <Login />
+      </Route>
+      <Route exact path="/signup">
+        <Register />
+      </Route>
+      <Route exact path="/">
+        <Layout><Main /></Layout>
+      </Route>
+      <Route exact path="/movies">
+        <Layout><Movies /></Layout>
+      </Route>
+      <Route exact path="/saved-movies">
+        <Layout><SavedMovies /></Layout>
+      </Route>
+      <Route exact path="/profile">
+        <LayoutWithoutFooter><Profile /></LayoutWithoutFooter>
+      </Route>
+      <Route>
+        <NotFound />
+      </Route>
+    </Switch>
+  );
 }
 
 export default AppRouter;

@@ -16,8 +16,8 @@ function Button(props) {
 
   return (
     <button
-      className={btnClassName}
       type={type}
+      className={btnClassName}
       onClick={onClick}
       {...otherProps}
     >

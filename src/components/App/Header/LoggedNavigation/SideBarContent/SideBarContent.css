@@ -19,6 +19,10 @@
 }
 
 .sideBarContent__closeBtn {
+    border: none;
+    background: url("../../../../../images/close.svg") no-repeat center;
+    margin: 0;
+    padding: 0;
     position: fixed;
     top: 22px;
     right: 22px;

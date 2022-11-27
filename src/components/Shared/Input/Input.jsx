@@ -7,7 +7,7 @@ function Input(props) {
     value,
     onValueChanged,
     className,
-    style,
+    theme,
     ...otherProps
   } = props;
 
@@ -15,7 +15,7 @@ function Input(props) {
     <input
       className={classNames(
         'input',
-        `input_style_${style}`,
+        `input_style_${theme}`,
         className,
       )}
       value={value}

@@ -20,7 +20,7 @@ function InputWithLabel(props) {
         {label}
       </label>
       <Input
-        style="profile"
+        theme="profile"
         value={value}
         onValueChanged={onValueChanged}
         {...otherProps}

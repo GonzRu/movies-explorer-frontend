@@ -1,14 +1,14 @@
 import React, { useCallback, useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import InputWithLabel from '../../Shared/InputWithLabel/InputWithLabel';
 import Button from '../../Shared/Button/Button';
 import './LoginForm.css';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
-import { useHistory } from 'react-router-dom';
 import { MOVIES_ROUTE } from '../../../consts/routes';
 
 function LoginForm() {
   const history = useHistory();
-  const {setCurrentUser} = useContext(CurrentUserContext);
+  const { setCurrentUser } = useContext(CurrentUserContext);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
