@@ -51,9 +51,16 @@ input:checked + .slider:before {
 }
 
 .switch__text {
-    margin-left: 40px;
+    margin-left: 50px;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 18px;
     color: black;
+}
+
+@media screen and (max-width: 540px) {
+    .switch__text {
+        font-size: 11px;
+        line-height: 18px;
+    }
 }

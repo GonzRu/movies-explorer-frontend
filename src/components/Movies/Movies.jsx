@@ -9,7 +9,6 @@ function Movies() {
   return (
     <div className="movies">
       <MoviesSearchForm />
-      <div className="movies__separator" />
       <MoviesCardList />
       <Button className="movies__moreBtn" color="grey">
         Ещё

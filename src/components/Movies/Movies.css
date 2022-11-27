@@ -4,10 +4,6 @@
     flex-direction: column;
 }
 
-.movies__separator {
-    border-bottom: #E8E8E8 1px solid;
-}
-
 .movies__moreBtn {
     margin-top: 50px;
     margin-bottom: 80px;

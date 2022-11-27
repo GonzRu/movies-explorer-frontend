@@ -4,16 +4,12 @@ import searchBtn from '../../../images/search-btn.svg';
 import Switch from '../Switch/Switch';
 
 function MoviesSearchForm() {
-  const [shortFilmOnly, setShortFilmOnly] = useState(false);
+  const [shortFilmOnly, setShortFilmOnly] = useState(true);
 
   return (
     <div className="searchForm">
       <div className="searchForm__mainContent">
         <div className="searchForm__icon" />
-        {/* <div style={{ */}
-        {/*    height: 20, */}
-        {/*    backgroundColor: 'red' */}
-        {/* }}></div> */}
         <input
           className="searchForm__input"
           type="text"
@@ -24,7 +20,7 @@ function MoviesSearchForm() {
         />
         <div className="searchForm__wideSliderWrapper">
           <Switch
-            value={shortFilmOnly}
+              checked={shortFilmOnly}
             onChange={(value) => setShortFilmOnly(value)}
             label="Короткометражки"
           />
@@ -33,7 +29,7 @@ function MoviesSearchForm() {
 
       <div className="searchForm__shotSlideWrapper">
         <Switch
-          value={shortFilmOnly}
+            checked={shortFilmOnly}
           onChange={(value) => setShortFilmOnly(value)}
           label="Короткометражки"
         />
