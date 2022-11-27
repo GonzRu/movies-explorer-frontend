@@ -4,8 +4,8 @@
     align-items: stretch;
     max-width: 410px;
     min-width: 260px;
-    /*width: 100%;*/
-    margin: auto;
+    width: 100%;
+    margin: 74px auto 70px;
 }
 
 .profile__title {
@@ -53,6 +53,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .profile {
+        margin: 236px auto 70px;
+    }
     .profile__title {
         margin: 0 0 96px;
     }
@@ -66,12 +69,17 @@
 
 @media screen and (max-width: 540px) {
     .profile {
-        margin: 0 30px;
+        margin: 70px auto 70px;
+        width: calc(100vw - 60px);
+        height: 100vh;
     }
     .profile__title {
         margin: 0 0 80px;
     }
     .profile__editBtn {
+    }
+    .profile__lastInput {
+        flex: 1;
     }
 }
 

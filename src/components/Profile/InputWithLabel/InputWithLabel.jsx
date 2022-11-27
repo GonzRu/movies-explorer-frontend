@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import Input from '../../Shared/Input/Input';
 import './InputWithLabel.css';
 
@@ -8,11 +9,16 @@ function InputWithLabel(props) {
     label,
     value,
     onValueChanged,
+    className,
     ...otherProps
   } = props;
 
   return (
-    <div className="profileInputWithLabel">
+    <div className={classNames(
+      'profileInputWithLabel',
+      className,
+    )}
+    >
       <label
         className="profileInputWithLabel__label"
         id={id}

@@ -35,6 +35,7 @@ function Profile() {
       />
       <div className="profile__delimiter" />
       <InputWithLabel
+        className="profile__lastInput"
         label="E-mail"
         value={email}
         onValueChanged={(value) => setEmail(value)}
