@@ -2,9 +2,29 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    flex: 1;
 }
 
 .registerForm__submitBtn {
-    margin-top: auto;
+    margin-top: 49px;
+}
+
+@media screen and (max-width: 1024px) {
+    .registerForm {
+    }
+    .registerForm__submitBtn {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .registerForm {
+        flex: 1;
+        gap: 20px;
+    }
+    .registerForm__lastInput {
+        flex: 1;
+    }
+    .registerForm__submitBtn {
+        margin-top: 0px;
+    }
 }

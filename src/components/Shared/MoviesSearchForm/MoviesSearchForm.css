@@ -79,6 +79,10 @@
         display: none;
     }
 
+    .searchForm__mainContent {
+        grid-template-columns: 1fr auto;
+    }
+
     .searchForm__wideSliderWrapper {
         display: none;
     }

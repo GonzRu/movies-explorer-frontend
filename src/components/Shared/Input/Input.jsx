@@ -8,6 +8,7 @@ function Input(props) {
     onValueChanged,
     className,
     theme,
+    hasError,
     ...otherProps
   } = props;
 
@@ -17,6 +18,7 @@ function Input(props) {
         'input',
         `input_style_${theme}`,
         className,
+        hasError && 'input_error',
       )}
       value={value}
       onChange={(e) => onValueChanged?.(e.target.value)}

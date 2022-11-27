@@ -4,9 +4,9 @@ import Button from '../../Shared/Button/Button';
 import './RegisterForm.css';
 
 function RegisterForm() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState('Виталий');
+  const [email, setEmail] = useState('pochta@yandex.ru');
+  const [password, setPassword] = useState('qwertyu');
 
   const onNameChanged = useCallback((value) => setName(value), [setName]);
   const onEmailChanged = useCallback((value) => setEmail(value), [setEmail]);
@@ -29,10 +29,12 @@ function RegisterForm() {
         onValueChanged={onEmailChanged}
       />
       <InputWithLabel
+        className="registerForm__lastInput"
         label="Пароль"
         value={password}
         onValueChanged={onPasswordChanged}
         type="password"
+        error="Что-то пошло не так..."
       />
       <Button
         type="submit"
