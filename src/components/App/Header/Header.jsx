@@ -2,13 +2,15 @@ import React from 'react';
 import Navigation from './Navigation/Navigation';
 import Logo from '../../Shared/Logo/Logo';
 import './Header.css'
+import classNames from 'classnames';
 
 const Header = ({isAccent}) => {
 
-    const headerClassName = isAccent
-    ? 'header header_color_accent' : 'header';
     return (
-        <header className={headerClassName}>
+        <header className={classNames(
+            'header',
+            isAccent && 'header_color_accent'
+        )}>
             <Logo/>
             <Navigation/>
         </header>

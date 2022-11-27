@@ -15,7 +15,10 @@ const NotLoggedNavigation = () => {
 
     return (
         <div className='notLoggedNavigation'>
-            <AppLink to={REGISTER_ROUTE}>
+            <AppLink
+                to={REGISTER_ROUTE}
+                className='notLoggedNavigation__registration'
+            >
                 Регистрация
             </AppLink>
             <Button

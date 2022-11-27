@@ -1,5 +1,6 @@
 import React from 'react';
 import './PageSection.css';
+import classNames from 'classnames';
 
 const PageSection = (props) => {
 
@@ -7,14 +8,24 @@ const PageSection = (props) => {
         title,
         children,
         accent,
-        contentClasses
+        className,
+        contentClasses,
+        titleClasses,
     } = props;
 
-    const rootClasses = accent ? 'pageSection pageSection_accent' : 'pageSection';
-
     return (
-        <div className={rootClasses}>
-            <h2 className='pageSection__title'>{title}</h2>
+        <div className={classNames(
+            'pageSection',
+            className,
+            accent && 'pageSection_accent'
+        )}>
+            <h2 className={classNames(
+                'pageSection__title',
+                titleClasses
+            )}
+            >
+                {title}
+            </h2>
             <div className='pageSection__delimiter'/>
             <div className={contentClasses}>
                 {children}

@@ -6,7 +6,12 @@ import './AboutMe.css';
 
 const AboutMe = () => {
     return (
-        <PageSection title='Студент' contentClasses='aboutMe'>
+        <PageSection
+            title='Студент'
+            className='aboutMe'
+            titleClasses='aboutMe__title'
+            contentClasses='aboutMe__content'
+        >
             <Me/>
             <Portfolio/>
         </PageSection>

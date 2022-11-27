@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .techItem {
         width: 84px;
         height: 57px;

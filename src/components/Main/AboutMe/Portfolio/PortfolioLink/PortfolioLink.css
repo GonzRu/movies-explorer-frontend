@@ -34,6 +34,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .portfolioLink {
+        height: 68px;
+    }
     .portfolioLink__name {
         font-size: 28px;
         line-height: 50px;
@@ -44,9 +47,9 @@
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 540px) {
     .portfolioLink {
-        height: 47px;
+        height: 46px;
     }
     .portfolioLink__name {
         font-size: 18px;

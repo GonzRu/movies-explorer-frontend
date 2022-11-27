@@ -9,3 +9,20 @@
     line-height: 20px;
     color: #A0A0A0;
 }
+
+@media screen and (max-width: 1024px) {
+    .portfolio {
+        margin-top: 95px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .portfolio {
+        margin-top: 70px;
+    }
+    .portfolio__title {
+        font-size: 14px;
+        line-height: 20px;
+        margin: 0 0 40px;
+    }
+}

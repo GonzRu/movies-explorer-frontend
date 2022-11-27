@@ -14,9 +14,14 @@ const techs = [
 
 const TechItems = () => {
     return (
-        <div className='techItems'>
-            {techs.map(item => <TechItem key={item} name={item}/>)}
-        </div>
+        <ul className='techItems'>
+            {techs.map(item =>
+                <TechItem
+                    key={item}
+                    name={item}
+                />
+            )}
+        </ul>
     );
 };
 

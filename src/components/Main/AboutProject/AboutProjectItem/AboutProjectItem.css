@@ -17,10 +17,22 @@
     margin: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 1024px) {
+    .aboutProjectItem__title {
+        margin: 0 0 22px;
+    }
+
+    .aboutProjectItem__text {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 540px) {
     .aboutProjectItem__title {
         font-size: 18px;
         line-height: 22px;
+        margin: 0 0 18px;
     }
 
     .aboutProjectItem__text {

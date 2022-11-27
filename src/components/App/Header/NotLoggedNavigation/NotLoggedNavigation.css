@@ -4,8 +4,24 @@
     align-items: center;
 }
 
+.notLoggedNavigation__registration {
+
+}
+
 .notLoggedNavigation__login {
     width: 76px;
     height: 32px;
     margin-left: 30px;
+}
+
+@media screen and (max-width: 540px) {
+    .notLoggedNavigation__registration {
+        font-size: 10px;
+        line-height: 16px;
+    }
+    .notLoggedNavigation__login {
+        width: 54px;
+        height: 26px;
+        margin-left: 14px;
+    }
 }
