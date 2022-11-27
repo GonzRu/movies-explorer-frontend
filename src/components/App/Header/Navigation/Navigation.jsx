@@ -1,19 +1,17 @@
-import React, {useContext} from 'react';
-import './Navigation.css'
+import React, { useContext } from 'react';
+import './Navigation.css';
 import CurrentUserContext from '../../../../contexts/CurrentUserContext';
 import NotLoggedNavigation from '../NotLoggedNavigation/NotLoggedNavigation';
 import LoggedNavigation from '../LoggedNavigation/LoggedNavigation';
 
-const Navigation = () => {
+function Navigation() {
+  const [currentUser] = useContext(CurrentUserContext);
 
-    const [currentUser] = useContext(CurrentUserContext);
+  if (!currentUser) {
+    return (<NotLoggedNavigation />);
+  }
 
-    if (!currentUser) {
-        return (<NotLoggedNavigation/>)
-    }
-
-    return (<LoggedNavigation/>);
-
-};
+  return (<LoggedNavigation />);
+}
 
 export default Navigation;

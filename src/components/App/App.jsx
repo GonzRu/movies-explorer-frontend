@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import AppRouter from './AppRouter/AppRouter';
 import AuthProvider from './AuthProvider/AuthProvider';
@@ -5,9 +6,9 @@ import AuthProvider from './AuthProvider/AuthProvider';
 function App() {
   return (
     <div className="App">
-        <AuthProvider>
-            <AppRouter/>
-        </AuthProvider>
+      <AuthProvider>
+        <AppRouter />
+      </AuthProvider>
     </div>
   );
 }

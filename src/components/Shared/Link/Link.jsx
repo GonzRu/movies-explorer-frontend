@@ -1,24 +1,23 @@
 import React from 'react';
-import './Link.css'
+import './Link.css';
 
-const Link = (props) => {
+function Link(props) {
+  const {
+    link,
+    children,
+    className,
+  } = props;
 
-    const {
-        link,
-        children,
-        className
-    } = props;
+  const rootClasses = className ? `link ${className}` : 'link';
 
-    const rootClasses = className ? `link ${className}` : 'link';
-
-    return (
-        <a
-            className={rootClasses}
-            href={link}
-        >
-            {children}
-        </a>
-    );
-};
+  return (
+    <a
+      className={rootClasses}
+      href={link}
+    >
+      {children}
+    </a>
+  );
+}
 
 export default Link;

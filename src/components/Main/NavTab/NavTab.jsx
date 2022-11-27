@@ -1,11 +1,9 @@
 import React from 'react';
 
-const NavTab = () => {
-    return (
-        <div>
-
-        </div>
-    );
-};
+function NavTab() {
+  return (
+    <div />
+  );
+}
 
 export default NavTab;
