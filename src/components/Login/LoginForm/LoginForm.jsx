@@ -8,10 +8,10 @@ import { MOVIES_ROUTE } from '../../../consts/routes';
 
 function LoginForm() {
   const history = useHistory();
-  const [_, setCurrentUser] = useContext(CurrentUserContext);
+  const {setCurrentUser} = useContext(CurrentUserContext);
 
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onEmailChanged = useCallback((value) => setEmail(value), [setEmail]);
   const onPasswordChanged = useCallback((value) => setPassword(value), [setPassword]);

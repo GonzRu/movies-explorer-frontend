@@ -4,9 +4,9 @@ import Button from '../../Shared/Button/Button';
 import './RegisterForm.css';
 
 function RegisterForm() {
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const onNameChanged = useCallback((value) => setName(value), [setName]);
   const onEmailChanged = useCallback((value) => setEmail(value), [setEmail]);

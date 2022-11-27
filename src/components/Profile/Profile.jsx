@@ -5,14 +5,14 @@ import InputWithLabel from './InputWithLabel/InputWithLabel';
 import Button from '../Shared/Button/Button';
 
 function Profile() {
-  const [currentUser] = useContext(CurrentUserContext);
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+  const {currentUser} = useContext(CurrentUserContext);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [editMode, setEditMode] = useState(false);
 
     useEffect(() => {
-        setName(currentUser?.name);
-        setEmail(currentUser?.email);
+        setName(currentUser?.name ?? '');
+        setEmail(currentUser?.email ?? '');
     }, [currentUser]);
 
   if (!currentUser) return null;
