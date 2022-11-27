@@ -1,6 +1,7 @@
 .me {
     display: grid;
     grid-template-columns: 1fr auto;
+    gap: 10px;
 }
 
 .me__aboutWrapper {
@@ -72,7 +73,7 @@
     }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 400px) {
     .me {
         grid-template-columns: none;
         grid-template-rows: auto auto;
