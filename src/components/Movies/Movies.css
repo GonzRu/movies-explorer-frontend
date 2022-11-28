@@ -10,6 +10,17 @@
     align-self: stretch;
 }
 
+.movies_error {
+    color: red;
+    align-self: center;
+    margin-top: 40px;
+}
+
+.movies_noResult {
+    align-self: center;
+    margin-top: 40px;
+}
+
 @media screen and (max-width: 1024px) {
     .movies {
         padding: 0 30px;

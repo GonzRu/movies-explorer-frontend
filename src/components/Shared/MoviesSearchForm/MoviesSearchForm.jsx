@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
 import './MoviesSearchForm.css';
-import searchBtn from '../../../images/search-btn.svg';
 import Switch from '../Switch/Switch';
 
-function MoviesSearchForm() {
-  const [shortFilmOnly, setShortFilmOnly] = useState(true);
+function MoviesSearchForm({ onSubmit, filter }) {
+  const [search, setSearch] = useState(filter?.search ?? '');
+  const [shortOnly, setShortOnly] = useState(filter?.shortOnly ?? false);
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    onSubmit({ search, shortOnly });
+  };
 
   return (
-    <div className="searchForm">
+    <form className="searchForm" onSubmit={onSubmitHandler}>
       <div className="searchForm__mainContent">
         <div className="searchForm__icon" />
         <input
           className="searchForm__input"
           type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
-        <img
+        <button
+          type="submit"
           className="searchForm__searchBtn"
-          src={searchBtn}
-          alt="Кнопка поиска"
         />
         <div className="searchForm__wideSliderWrapper">
           <Switch
-            checked={shortFilmOnly}
-            onChange={(value) => setShortFilmOnly(value)}
+            checked={shortOnly}
+            onChange={(value) => setShortOnly(value)}
             label="Короткометражки"
           />
         </div>
@@ -30,12 +36,12 @@ function MoviesSearchForm() {
 
       <div className="searchForm__shotSlideWrapper">
         <Switch
-          checked={shortFilmOnly}
-          onChange={(value) => setShortFilmOnly(value)}
+          checked={shortOnly}
+          onChange={(value) => setShortOnly(value)}
           label="Короткометражки"
         />
       </div>
-    </div>
+    </form>
   );
 }
 

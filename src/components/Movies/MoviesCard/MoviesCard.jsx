@@ -3,15 +3,20 @@ import './MoviesCard.css';
 import MoviesCardLike from '../MoviesCardLike/MoviesCardLike';
 
 function MoviesCard({ movie }) {
+  const imageUrl = `https://api.nomoreparties.co/${movie.image.url}`;
+  const hours = Math.floor(movie.duration / 60);
+  const minutes = movie.duration % 60;
+  const duration = `${hours}ч ${minutes}м`;
   return (
     <li className="moviesCard">
       <img
-        src={movie.img}
-        alt={movie.name}
+        className="moviesCard__image"
+        src={imageUrl}
+        alt={movie.nameRU}
       />
       <div className="moviesCard__nameContainer">
         <span className="moviesCard__name">
-          {movie.name}
+          {movie.nameRU}
         </span>
         <MoviesCardLike
           isLiked={movie.liked}
@@ -19,7 +24,7 @@ function MoviesCard({ movie }) {
         />
       </div>
       <span className="moviesCard__duration">
-        {movie.duration}
+        {duration}
       </span>
     </li>
   );
