@@ -73,7 +73,7 @@
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .me {
         grid-template-columns: none;
         grid-template-rows: auto auto;
@@ -97,9 +97,12 @@
         margin-bottom: 40px;
     }
     .me__image {
-        max-height: 100%;
-        max-width: 100%;
+        /*min-width: 270px;*/
+        /*max-width: 400px;*/
+        max-width: none;
+        max-height: none;
+        width: 100%;
         grid-row: 1/2;
-        justify-self: stretch;
+        justify-self: center;
     }
 }
