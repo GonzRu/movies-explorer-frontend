@@ -16,6 +16,11 @@
     opacity: 0.8;
 }
 
+.btn:disabled {
+    opacity: 0.5;
+    cursor: auto;
+}
+
 .btn_color_grey {
     background: #F9F9F9;
     border-radius: 6px;

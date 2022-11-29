@@ -21,7 +21,7 @@ function Input(props) {
         hasError && 'input_error',
       )}
       value={value}
-      onChange={(e) => onValueChanged?.(e.target.value)}
+      onChange={(e) => onValueChanged?.(e)}
       {...otherProps}
     />
   );
