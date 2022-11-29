@@ -9,6 +9,7 @@ import Movies from '../../Movies/Movies';
 import Layout from '../Layout/Layout';
 import NotFound from '../../NotFound/NotFound';
 import LayoutWithoutFooter from '../Layout/LayoutWithoutFooter';
+import ProtectedRoute from '../../Shared/ProtectedRoute/ProtectedRoute';
 
 function AppRouter() {
   return (
@@ -22,15 +23,15 @@ function AppRouter() {
       <Route exact path="/">
         <Layout><Main /></Layout>
       </Route>
-      <Route exact path="/movies">
+      <ProtectedRoute exact path="/movies">
         <Layout><Movies /></Layout>
-      </Route>
-      <Route exact path="/saved-movies">
+      </ProtectedRoute>
+      <ProtectedRoute exact path="/saved-movies">
         <Layout><SavedMovies /></Layout>
-      </Route>
-      <Route exact path="/profile">
+      </ProtectedRoute>
+      <ProtectedRoute exact path="/profile">
         <LayoutWithoutFooter><Profile /></LayoutWithoutFooter>
-      </Route>
+      </ProtectedRoute>
       <Route>
         <NotFound />
       </Route>

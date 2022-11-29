@@ -1,4 +1,5 @@
 import responseProcessor from './httpResponseProcessor';
+import { JWT_LOCALSTORAGE_KEY } from '../consts/localStorage';
 
 class MainApi {
   // eslint-disable-next-line class-methods-use-this
@@ -39,6 +40,37 @@ class MainApi {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
+        },
+      },
+    )
+      .then(responseProcessor);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  saveMovie(data) {
+    return fetch(
+      'https://api.dsmirnov-diplom.nomoredomains.icu/movies',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem(JWT_LOCALSTORAGE_KEY)}`,
+        },
+        body: JSON.stringify(data),
+      },
+    )
+      .then(responseProcessor);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  removeMovie(id) {
+    return fetch(
+      `https://api.dsmirnov-diplom.nomoredomains.icu/movies${id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem(JWT_LOCALSTORAGE_KEY)}`,
         },
       },
     )
