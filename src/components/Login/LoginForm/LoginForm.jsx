@@ -1,49 +1,60 @@
-import React, { useCallback, useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
 import InputWithLabel from '../../Shared/InputWithLabel/InputWithLabel';
 import Button from '../../Shared/Button/Button';
 import './LoginForm.css';
+import useForm from '../../../hooks/useForm';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
-import { MOVIES_ROUTE } from '../../../consts/routes';
 
 function LoginForm() {
-  const history = useHistory();
-  const { setCurrentUser } = useContext(CurrentUserContext);
+  const { login } = useContext(CurrentUserContext);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {
+    values,
+    errors,
+    isValid,
+    onChange,
+  } = useForm({ email: '', password: '' }, false);
 
-  const onEmailChanged = useCallback((value) => setEmail(value), [setEmail]);
-  const onPasswordChanged = useCallback((value) => setPassword(value), [setPassword]);
+  const [error, setError] = useState('');
+  const [pending, setPending] = useState(false);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = async (event) => {
+    event.preventDefault();
 
-    setCurrentUser({
-      name: 'Денис',
-      email: 'test@mail.ru',
-    });
-
-    history.push(MOVIES_ROUTE);
+    try {
+      setPending(true);
+      setError('');
+      await login(values);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setPending(false);
+    }
   };
 
   return (
     <form className="loginForm" onSubmit={onSubmit}>
       <InputWithLabel
         label="E-mail"
-        value={email}
-        onValueChanged={onEmailChanged}
+        name="email"
+        value={values.email}
+        error={errors.email}
+        onValueChanged={onChange}
       />
       <InputWithLabel
         className="loginForm__lastInput"
         label="Пароль"
-        value={password}
-        onValueChanged={onPasswordChanged}
+        name="password"
+        value={values.password}
+        error={errors.password}
+        onValueChanged={onChange}
         type="password"
       />
+      {error && <span className="loginForm_error">{error}</span>}
       <Button
         type="submit"
         className="loginForm__submitBtn"
+        disabled={!isValid || pending}
       >
         Войти
       </Button>

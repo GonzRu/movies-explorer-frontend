@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import InputWithLabel from '../../Shared/InputWithLabel/InputWithLabel';
 import Button from '../../Shared/Button/Button';
 import './RegisterForm.css';
 import useForm from '../../../hooks/useForm';
 import mainApi from '../../../utils/MainApi';
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
 
 function RegisterForm() {
   const {
@@ -14,6 +15,7 @@ function RegisterForm() {
   } = useForm({ name: '', email: '', password: '' }, false);
   const [error, setError] = useState('');
   const [pending, setPending] = useState(false);
+  const { login } = useContext(CurrentUserContext);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -22,6 +24,7 @@ function RegisterForm() {
       setPending(true);
       setError('');
       await mainApi.signup(values);
+      await login({ email: values.email, password: values.password });
     } catch (err) {
       setError(err.message);
     } finally {
