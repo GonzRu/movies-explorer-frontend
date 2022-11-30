@@ -1,33 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MoviesSearchForm from '../Shared/MoviesSearchForm/MoviesSearchForm';
 import './Movies.css';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import Button from '../Shared/Button/Button';
 import Preloader from './Preloader/Preloader';
-import useMovies2 from '../../hooks/useMovies';
+import useMovies from '../../hooks/useMovies';
 import usePagedMovies from '../../hooks/usePagedMovies';
+import useFilteredMovies from '../../hooks/useFilteredMovies';
+import useStoredFilter from '../../hooks/useStoredFilter';
 
 function Movies() {
+  const [filter, setFilter] = useStoredFilter();
+
   const {
     isLoading,
-    filter,
-    setFilter,
-    movies,
+    initialized,
     error,
-  } = useMovies2();
-
+    movies,
+    fetchMovies,
+  } = useMovies();
+  const filteredMovies = useFilteredMovies(movies, filter);
   const {
     pagedMovies,
     hasMore,
     addMore,
-  } = usePagedMovies(movies);
+  } = usePagedMovies(filteredMovies);
 
-  const onSubmit = (data) => setFilter(data);
+  const onSubmit = (data) => {
+    setFilter(data);
+    fetchMovies();
+  };
+
+  useEffect(() => {
+    if (filter.search || filter.shortOnly) {
+      fetchMovies();
+    }
+  }, []);
 
   if (error) {
     return (
       <main className="movies">
         <MoviesSearchForm onSubmit={onSubmit} filter={filter} />
+        {/* eslint-disable-next-line max-len */}
         <span className="movies_error">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</span>
       </main>
     );
@@ -42,7 +56,7 @@ function Movies() {
     );
   }
 
-  if (movies && movies.length === 0) {
+  if (initialized && pagedMovies.length === 0) {
     return (
       <main className="movies">
         <MoviesSearchForm onSubmit={onSubmit} filter={filter} />
@@ -51,7 +65,7 @@ function Movies() {
     );
   }
 
-  if (!pagedMovies) {
+  if (!initialized) {
     return (
       <main className="movies">
         <MoviesSearchForm onSubmit={onSubmit} filter={filter} />
