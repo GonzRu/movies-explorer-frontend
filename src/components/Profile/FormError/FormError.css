@@ -1,0 +1,9 @@
+.formError {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    color: #FF004C;
+    margin-bottom: 20px;
+    grid-column: 1/3;
+}

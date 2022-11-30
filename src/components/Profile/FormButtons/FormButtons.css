@@ -1,0 +1,44 @@
+.formButtons__editBtn,
+.formButtons__logoutBtn {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.formButtons__editBtn:hover,
+.formButtons__logoutBtn:hover {
+    opacity: 0.7;
+}
+
+.formButtons__editBtn {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 0;
+}
+
+.formButtons__logoutBtn {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #FF4062;
+    margin-top: 16px;
+    padding: 0;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .formButtons__editBtn {
+    }
+    .formButtons__saveBtn {
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .formButtons__editBtn {
+    }
+    .formButtons__lastInput {
+        /*flex: 1;*/
+    }
+}

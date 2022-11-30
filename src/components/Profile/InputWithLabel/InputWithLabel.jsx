@@ -10,6 +10,7 @@ function InputWithLabel(props) {
     value,
     onValueChanged,
     className,
+    error,
     ...otherProps
   } = props;
 
@@ -31,6 +32,7 @@ function InputWithLabel(props) {
         onValueChanged={onValueChanged}
         {...otherProps}
       />
+      {error && <span className="profileInputWithLabel__error">{error}</span>}
     </div>
   );
 }

@@ -1,74 +1,66 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import './Profile.css';
-import InputWithLabel from './InputWithLabel/InputWithLabel';
-import Button from '../Shared/Button/Button';
+import useForm from '../../hooks/useForm';
+import FormInputs from './FormInputs/FormInputs';
+import FormButtons from './FormButtons/FormButtons';
+import FormError from './FormError/FormError';
 
 function Profile() {
-  const { currentUser } = useContext(CurrentUserContext);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const { currentUser, logout, updateUser } = useContext(CurrentUserContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
   const [editMode, setEditMode] = useState(false);
-
-  useEffect(() => {
-    setName(currentUser?.name ?? '');
-    setEmail(currentUser?.email ?? '');
-  }, [currentUser]);
+  const {
+    values,
+    errors,
+    isValid,
+    onChange,
+  } = useForm({ name: currentUser.name, email: currentUser.email });
 
   if (!currentUser) return null;
 
   const onEditClick = () => setEditMode(true);
-  const onSaveClick = () => setEditMode(false);
+  const onSaveClick = () => {
+    setIsLoading(true);
+    updateUser(values)
+      .then(() => {
+        setEditMode(false);
+        setError('');
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+  const onLogoutClick = () => {
+    setIsLoading(true);
+    logout();
+    setIsLoading(false);
+  };
 
   return (
     <main className="profile">
       <h1 className="profile__title">
-        Привет,
-        {currentUser.name}
-        !
+        {`Привет, ${currentUser.name}!`}
       </h1>
-      <InputWithLabel
-        label="Имя"
-        value={name}
-        onValueChanged={(value) => setName(value)}
-        readOnly={!editMode}
-      />
-      <div className="profile__delimiter" />
-      <InputWithLabel
-        className="profile__lastInput"
-        label="E-mail"
-        value={email}
-        onValueChanged={(value) => setEmail(value)}
-        readOnly={!editMode}
-      />
-      {
-            editMode
-              ? (
-                <Button
-                  onClick={onSaveClick}
-                  className="profile__saveBtn"
-                >
-                  Сохранить
-                </Button>
-              )
-              : (
-                <>
-                  <button
-                    type="button"
-                    className="profile__editBtn"
-                    onClick={onEditClick}
-                  >
-                    Редактировать
-                  </button>
-                  <button
-                    type="button"
-                    className="profile__logoutBtn"
-                  >
-                    Выйти из аккаунта
-                  </button>
-                </>
-              )
-        }
+      <form className="profile__form">
+        <FormInputs
+          values={values}
+          errors={errors}
+          onChange={onChange}
+          editMode={editMode}
+        />
+        <FormError error={error} />
+        <FormButtons
+          editMode={editMode}
+          isValid={isValid}
+          isLoading={isLoading}
+          onEditClick={onEditClick}
+          onLogoutClick={onLogoutClick}
+          onSaveClick={onSaveClick}
+        />
+      </form>
     </main>
   );
 }

@@ -5,6 +5,7 @@ import './RegisterForm.css';
 import useForm from '../../../hooks/useForm';
 import mainApi from '../../../utils/MainApi';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
+import { nameValidatorRegexp } from '../../../utils/validatros';
 
 function RegisterForm() {
   const {
@@ -41,7 +42,7 @@ function RegisterForm() {
         onValueChanged={onChange}
         error={errors.name}
         placeholder="Имя"
-        pattern="^[a-zA-Zа-яА-Я -]{2,}$"
+        pattern={nameValidatorRegexp}
         required
       />
       <InputWithLabel

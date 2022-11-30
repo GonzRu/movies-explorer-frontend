@@ -34,10 +34,14 @@ function AuthProvider({ children }) {
     history.push(MAIN_ROUTE);
   }, [history]);
 
+  const updateUser = useCallback((data) => mainApi.updateCurrentUser(data)
+    .then((user) => setCurrentUser(user)), [setCurrentUser]);
+
   const value = useMemo(() => ({
     currentUser,
     login,
     logout,
+    updateUser,
   }), [currentUser, login]);
 
   useEffect(() => {
