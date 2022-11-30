@@ -32,7 +32,9 @@
       "jsx-a11y/anchor-is-valid": "off",
       "jsx-a11y/control-has-associated-label": "off",
       "jsx-a11y/label-has-associated-control": "off",
-      "react/button-has-type": "off"
+      "react/button-has-type": "off",
+      "max-len": ["error", { "code": 120 }],
+      "no-underscore-dangle": ["error", { "allow": ["_id"] }]
     },
     "overrides": [
       {

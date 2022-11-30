@@ -47,6 +47,20 @@ class MainApi {
   }
 
   // eslint-disable-next-line class-methods-use-this
+  getSavedMovies() {
+    return fetch(
+      'https://api.dsmirnov-diplom.nomoredomains.icu/movies',
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem(JWT_LOCALSTORAGE_KEY)}`,
+        },
+      },
+    )
+      .then(responseProcessor);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
   saveMovie(data) {
     return fetch(
       'https://api.dsmirnov-diplom.nomoredomains.icu/movies',
@@ -65,7 +79,7 @@ class MainApi {
   // eslint-disable-next-line class-methods-use-this
   removeMovie(id) {
     return fetch(
-      `https://api.dsmirnov-diplom.nomoredomains.icu/movies${id}`,
+      `https://api.dsmirnov-diplom.nomoredomains.icu/movies/${id}`,
       {
         method: 'DELETE',
         headers: {
