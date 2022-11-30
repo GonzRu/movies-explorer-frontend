@@ -47,10 +47,7 @@
     margin-top: 106px;
 }
 
-.sideBarContent__mainLink {
-}
-
-.sideBarContent__moviesLink {
+.sideBarContent__link_active {
     text-decoration: underline;
 }
 

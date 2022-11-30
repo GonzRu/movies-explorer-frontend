@@ -3,17 +3,22 @@
     align-items: center;
 }
 
-.navBar__movies {
-    font-weight: 500;
+.navBar__link {
+    font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     margin-right: 20px;
 }
 
+.navBar__link_active {
+    font-weight: 500;
+}
+
+.navBar__movies {
+    margin-right: 20px;
+}
+
 .navBar__savedMovies {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
     margin-right: 50px;
 }
 

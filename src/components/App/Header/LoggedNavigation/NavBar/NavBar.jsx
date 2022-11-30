@@ -7,10 +7,18 @@ import ProfileButton from '../ProfileButton/ProfileButton';
 function NavBar() {
   return (
     <div className="navBar">
-      <AppLink to={MOVIES_ROUTE} className="navBar__movies">
+      <AppLink
+        to={MOVIES_ROUTE}
+        className="navBar__link navBar__movies"
+        activeClassName="navBar__link_active"
+      >
         Фильмы
       </AppLink>
-      <AppLink to={SAVED_MOVIES_ROUTE} className="navBar__savedMovies">
+      <AppLink
+        to={SAVED_MOVIES_ROUTE}
+        className="navBar__link navBar__savedMovies"
+        activeClassName="navBar__link_active"
+      >
         Сохранённые фильмы
       </AppLink>
       <ProfileButton />

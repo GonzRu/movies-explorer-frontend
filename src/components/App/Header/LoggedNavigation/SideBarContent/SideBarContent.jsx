@@ -18,13 +18,23 @@ function SideBarContent({ visible, onClose }) {
         onClick={onClose}
       />
       <div className="sideBarContent__links">
-        <AppLink to={MAIN_ROUTE}>
+        <AppLink
+          to={MAIN_ROUTE}
+          activeClassName="sideBarContent__link_active"
+          exact
+        >
           Главная
         </AppLink>
-        <AppLink to={MOVIES_ROUTE} className="sideBarContent__moviesLink">
+        <AppLink
+          to={MOVIES_ROUTE}
+          activeClassName="sideBarContent__link_active"
+        >
           Фильмы
         </AppLink>
-        <AppLink to={SAVED_MOVIES_ROUTE}>
+        <AppLink
+          to={SAVED_MOVIES_ROUTE}
+          activeClassName="sideBarContent__link_active"
+        >
           Сохранённые фильмы
         </AppLink>
       </div>
