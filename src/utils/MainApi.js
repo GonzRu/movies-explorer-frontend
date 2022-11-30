@@ -1,5 +1,5 @@
 import responseProcessor from './httpResponseProcessor';
-import { JWT_LOCALSTORAGE_KEY } from '../consts/localStorage';
+import { getToken } from './jwt';
 
 class MainApi {
   // eslint-disable-next-line class-methods-use-this
@@ -23,9 +23,7 @@ class MainApi {
       'https://api.dsmirnov-diplom.nomoredomains.icu/signin',
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: this.getHeaders(),
         body: JSON.stringify(data),
       },
     )
@@ -33,14 +31,11 @@ class MainApi {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  getCurrentUser(token) {
+  getCurrentUser() {
     return fetch(
       'https://api.dsmirnov-diplom.nomoredomains.icu/users/me',
       {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
+        headers: this.getHeaders(),
       },
     )
       .then(responseProcessor);
@@ -51,10 +46,7 @@ class MainApi {
     return fetch(
       'https://api.dsmirnov-diplom.nomoredomains.icu/movies',
       {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem(JWT_LOCALSTORAGE_KEY)}`,
-        },
+        headers: this.getHeaders(),
       },
     )
       .then(responseProcessor);
@@ -66,10 +58,7 @@ class MainApi {
       'https://api.dsmirnov-diplom.nomoredomains.icu/movies',
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem(JWT_LOCALSTORAGE_KEY)}`,
-        },
+        headers: this.getHeaders(),
         body: JSON.stringify(data),
       },
     )
@@ -82,13 +71,18 @@ class MainApi {
       `https://api.dsmirnov-diplom.nomoredomains.icu/movies/${id}`,
       {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem(JWT_LOCALSTORAGE_KEY)}`,
-        },
+        headers: this.getHeaders(),
       },
     )
       .then(responseProcessor);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  getHeaders() {
+    return {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${getToken()}`,
+    };
   }
 }
 

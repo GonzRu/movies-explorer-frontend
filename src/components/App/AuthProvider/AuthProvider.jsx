@@ -1,28 +1,36 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, {
+  useCallback, useEffect, useMemo, useState,
+} from 'react';
 import { useHistory } from 'react-router-dom';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
 import mainApi from '../../../utils/MainApi';
-import { JWT_LOCALSTORAGE_KEY } from '../../../consts/localStorage';
 import { MAIN_ROUTE } from '../../../consts/routes';
+import { getToken, removeToken, setToken } from '../../../utils/jwt';
 
 function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
+
+  const getCurrentUser = () => mainApi.getCurrentUser()
+    .then((user) => setCurrentUser(user))
+    .catch((err) => console.log(err.message));
 
   const login = useCallback(async (data) => {
     const response = await mainApi.signin(data);
     const { token } = response;
 
-    localStorage.setItem(JWT_LOCALSTORAGE_KEY, token);
+    setToken(token);
 
-    const user = await mainApi.getCurrentUser(token);
+    const user = await mainApi.getCurrentUser();
     setCurrentUser(user);
 
     history.push(MAIN_ROUTE);
   }, [history]);
 
   const logout = useCallback(() => {
-    localStorage.removeItem(JWT_LOCALSTORAGE_KEY);
+    removeToken();
+    setCurrentUser(null);
     history.push(MAIN_ROUTE);
   }, [history]);
 
@@ -32,9 +40,19 @@ function AuthProvider({ children }) {
     logout,
   }), [currentUser, login]);
 
+  useEffect(() => {
+    const token = getToken();
+    if (token) {
+      getCurrentUser().finally(() => setIsLoading(false));
+    } else {
+      setIsLoading(false);
+    }
+  }, []);
+
   return (
     <CurrentUserContext.Provider value={value}>
-      {children}
+      {isLoading && <span>Загрузка...</span>}
+      {!isLoading && children}
     </CurrentUserContext.Provider>
   );
 }
