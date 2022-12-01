@@ -1,8 +1,8 @@
 import responseProcessor from './httpResponseProcessor';
 import { getToken } from './jwt';
 
-const baseUrl = 'http://localhost:5000';
-// const baseUrl = 'https://api.dsmirnov-diplom.nomoredomains.icu';
+// const baseUrl = 'http://localhost:5000';
+const baseUrl = 'https://api.dsmirnov-diplom.nomoredomains.icu';
 
 class MainApi {
   // eslint-disable-next-line class-methods-use-this
