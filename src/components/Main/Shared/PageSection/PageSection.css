@@ -1,0 +1,39 @@
+.pageSection {
+    padding: 110px 70px;
+}
+
+.pageSection_accent {
+    background-color: #F5F5F5;
+    padding: 98px 70px;
+}
+
+.pageSection__title {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    margin: 0 0 23px;
+    letter-spacing: -0.04em;
+}
+
+.pageSection__delimiter {
+    border-bottom: black solid 1px;
+}
+
+@media screen and (max-width: 1024px) {
+    .pageSection {
+        padding: 88px 50px;
+    }
+    .pageSection_accent {
+        padding: 88px 50px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .pageSection {
+        padding: 70px 18px;
+    }
+    .pageSection__title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}

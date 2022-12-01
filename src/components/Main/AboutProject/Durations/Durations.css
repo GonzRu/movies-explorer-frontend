@@ -1,0 +1,17 @@
+.durations {
+    margin-top: 110px;
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) 4fr;
+}
+
+@media screen and (max-width: 1024px) {
+    .durations {
+        margin-top: 91px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .durations {
+        margin-top: 58px;
+    }
+}

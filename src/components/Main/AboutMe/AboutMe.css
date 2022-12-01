@@ -1,0 +1,26 @@
+.aboutMe {
+    padding-bottom: 95px;
+}
+
+.aboutMe__content {
+    margin-top: 66px;
+}
+
+@media screen and (max-width: 1024px) {
+    .aboutMe {
+        padding-bottom: 52px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .aboutMe {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+    .aboutMe__title {
+        margin-bottom: 31px;
+    }
+    .aboutMe__content {
+        margin-top: 60px;
+    }
+}

@@ -1,0 +1,29 @@
+.btn {
+    outline: none;
+    border: none;
+    background: #000000;
+    border-radius: 3px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    cursor: pointer;
+    height: 45px;
+    padding: 0;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn_color_grey {
+    background: #F9F9F9;
+    border-radius: 6px;
+    color: #000000;
+}
+
+.btn_color_grey:hover {
+    background: #dbdbdb;
+    border-radius: 6px;
+    color: #000000;
+}

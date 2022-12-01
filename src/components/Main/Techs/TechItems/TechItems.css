@@ -1,0 +1,24 @@
+.techItems {
+    list-style: none;
+    padding: 0;
+    margin: 100px 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max-content, 90px));
+    grid-auto-columns: auto;
+    gap: 10px;
+    align-self: stretch;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .techItems {
+        margin: 83px 0 0;
+        grid-template-columns: repeat(auto-fit, minmax(max-content, 84px));
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .techItems {
+        margin: 50px 10px 0;
+    }
+}

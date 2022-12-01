@@ -1,0 +1,51 @@
+.register {
+    max-width: 396px;
+    min-width: 260px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 70px auto 0;
+    align-items: stretch;
+}
+
+.register__header {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    margin: 40px 0 40px;
+}
+
+.register__alreadyRegisteredRow {
+    align-self: center;
+    margin-top: 16px;
+}
+
+.register__alreadyRegisteredText {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A0A0A0;
+    margin-right: 6px;
+}
+
+@media screen and (max-width: 1024px) {
+    .register {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .register {
+        width: calc(100vw - 60px);
+        height: 100vh;
+        margin: 56px auto 30px;
+    }
+    .register__header {
+        margin: 50px 0 80px;
+        align-self: center;
+    }
+    .register__logo {
+        align-self: center;
+    }
+}

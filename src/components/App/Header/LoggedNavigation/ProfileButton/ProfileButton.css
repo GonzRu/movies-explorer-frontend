@@ -1,0 +1,22 @@
+.profileButton {
+
+}
+
+.profileButton {
+    display: flex;
+    align-items: center;
+}
+
+.profileButton__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 13px;
+}
+
+.profileButton__icon {
+    border-radius: 6px;
+    width: 30px;
+    height: 30px;
+    background: #F9F9F9 url("../../../../../images/profile.svg") no-repeat center;
+}

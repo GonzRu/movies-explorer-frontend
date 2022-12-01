@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 70px;
+}
+
+.header_color_accent {
+    background: var(--acent-color);
+}
+
+@media screen and (max-width: 1024px) {
+    .header {
+        padding: 18px 30px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .header {
+        padding: 18px 14px;
+    }
+}
