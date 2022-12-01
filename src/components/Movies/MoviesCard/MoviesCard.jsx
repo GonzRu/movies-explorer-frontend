@@ -2,13 +2,12 @@ import React, { useContext } from 'react';
 import './MoviesCard.css';
 import MoviesCardLike from '../MoviesCardLike/MoviesCardLike';
 import SavedMoviesContext from '../../../contexts/SavedMoviesContext';
+import getDurationText from '../../../utils/durationHelper';
 
 function MoviesCard({ movie }) {
   const imageUrl = `https://api.nomoreparties.co/${movie.image.url}`;
   const thumbnailUrl = `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`;
-  const hours = Math.floor(movie.duration / 60);
-  const minutes = movie.duration % 60;
-  const duration = `${hours}ч ${minutes}м`;
+  const duration = getDurationText(movie.duration);
 
   const {
     savedMovies,

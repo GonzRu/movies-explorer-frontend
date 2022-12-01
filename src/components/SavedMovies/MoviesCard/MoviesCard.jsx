@@ -1,10 +1,9 @@
 import React from 'react';
 import './MoviesCard.css';
+import getDurationText from '../../../utils/durationHelper';
 
 function MoviesCard({ movie, onRemove }) {
-  const hours = Math.floor(movie.duration / 60);
-  const minutes = movie.duration % 60;
-  const duration = `${hours}ч ${minutes}м`;
+  const duration = getDurationText(movie.duration);
 
   const onRemoveClick = () => onRemove(movie._id);
 
