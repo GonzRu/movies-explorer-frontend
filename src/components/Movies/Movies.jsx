@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, {
+  useContext, useEffect,
+} from 'react';
 import MoviesSearchForm from '../Shared/MoviesSearchForm/MoviesSearchForm';
 import './Movies.css';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
@@ -8,10 +10,13 @@ import useMovies from '../../hooks/useMovies';
 import usePagedMovies from '../../hooks/usePagedMovies';
 import useFilteredMovies from '../../hooks/useFilteredMovies';
 import useStoredFilter from '../../hooks/useStoredFilter';
+import SavedMoviesProvider from './SavedMoviesProvider/SavedMoviesProvider';
+import SavedMoviesContext from '../../contexts/SavedMoviesContext';
 
 function Movies() {
   const [filter, setFilter] = useStoredFilter();
 
+  const { fetchSavedMovies } = useContext(SavedMoviesContext);
   const {
     isLoading,
     initialized,
@@ -26,14 +31,18 @@ function Movies() {
     addMore,
   } = usePagedMovies(filteredMovies);
 
+  const fetchMoviesWrapper = () => Promise.all([
+    fetchMovies(),
+    fetchSavedMovies()]);
+
   const onSubmit = (data) => {
     setFilter(data);
-    fetchMovies();
+    fetchMoviesWrapper();
   };
 
   useEffect(() => {
     if (filter.search || filter.shortOnly) {
-      fetchMovies();
+      fetchMoviesWrapper();
     }
   }, []);
 
@@ -91,4 +100,12 @@ function Movies() {
   );
 }
 
-export default Movies;
+function MoviesWithContext() {
+  return (
+    <SavedMoviesProvider>
+      <Movies />
+    </SavedMoviesProvider>
+  );
+}
+
+export default MoviesWithContext;

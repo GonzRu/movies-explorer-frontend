@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './MoviesCard.css';
 import MoviesCardLike from '../MoviesCardLike/MoviesCardLike';
-import mainApi from '../../../utils/MainApi';
+import SavedMoviesContext from '../../../contexts/SavedMoviesContext';
 
 function MoviesCard({ movie }) {
   const imageUrl = `https://api.nomoreparties.co/${movie.image.url}`;
@@ -10,22 +10,31 @@ function MoviesCard({ movie }) {
   const minutes = movie.duration % 60;
   const duration = `${hours}ч ${minutes}м`;
 
-  const like = async () => {
-    console.log(movie);
-    const data = {
-      movieId: movie.id,
-      country: movie.country,
-      description: movie.description,
-      director: movie.director,
-      duration: movie.duration,
-      year: movie.year,
-      image: imageUrl,
-      trailerLink: movie.trailerLink,
-      thumbnail: thumbnailUrl,
-      nameRU: movie.nameRU,
-      nameEN: movie.nameEN,
-    };
-    await mainApi.saveMovie(data);
+  const {
+    savedMovies,
+    saveMovie,
+    removeMovie,
+  } = useContext(SavedMoviesContext);
+  const savedMovie = savedMovies[movie.id];
+  const isSaved = !!savedMovie;
+
+  const onLike = (isLiked) => {
+    if (isLiked) {
+      const data = {
+        movieId: movie.id,
+        country: movie.country,
+        description: movie.description,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        image: imageUrl,
+        trailerLink: movie.trailerLink,
+        thumbnail: thumbnailUrl,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+      };
+      saveMovie(data);
+    } else removeMovie(savedMovie._id);
   };
 
   return (
@@ -40,8 +49,8 @@ function MoviesCard({ movie }) {
           {movie.nameRU}
         </span>
         <MoviesCardLike
-          isLiked={movie.liked}
-          onChange={() => like()}
+          isLiked={isSaved}
+          onChange={onLike}
         />
       </div>
       <span className="moviesCard__duration">
