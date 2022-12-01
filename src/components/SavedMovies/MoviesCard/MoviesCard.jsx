@@ -1,19 +1,19 @@
 import React from 'react';
 import './MoviesCard.css';
-import mainApi from '../../../utils/MainApi';
 
-function MoviesCard({ movie }) {
+function MoviesCard({ movie, onRemove }) {
   const hours = Math.floor(movie.duration / 60);
   const minutes = movie.duration % 60;
   const duration = `${hours}ч ${minutes}м`;
 
-  const onRemove = () => mainApi.removeMovie(movie._id);
+  const onRemoveClick = () => onRemove(movie._id);
 
   return (
     <li className="savedMoviesCard">
       <img
         src={movie.image}
         alt={movie.nameRU}
+        className="savedMoviesCard__img"
       />
       <div className="savedMoviesCard__nameContainer">
         <span className="savedMoviesCard__name">
@@ -23,7 +23,7 @@ function MoviesCard({ movie }) {
         <button
           className="savedMoviesCard__removeBtn"
           type="button"
-          onClick={onRemove}
+          onClick={onRemoveClick}
         />
       </div>
       <span className="savedMoviesCard__duration">

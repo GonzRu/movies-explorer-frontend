@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import MoviesSearchForm from '../Shared/MoviesSearchForm/MoviesSearchForm';
 import './SavedMovies.css';
 import MoviesCardList from './MoviesCardList/MoviesCardList';
@@ -16,6 +16,14 @@ function SavedMovies() {
   const onSubmit = (data) => {
     setFilter(data);
   };
+
+  const onRemove = useCallback((id) => {
+    mainApi.removeMovie(id)
+      .then(() => {
+        setMovies(movies.filter((x) => x._id !== id));
+      })
+      .catch((err) => console.log(err));
+  }, [movies]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -46,7 +54,7 @@ function SavedMovies() {
   return (
     <main className="savedMovies">
       <MoviesSearchForm onSubmit={onSubmit} filter={filter} />
-      <MoviesCardList movies={filteredMovies} />
+      <MoviesCardList movies={filteredMovies} onRemove={onRemove} />
     </main>
   );
 }
