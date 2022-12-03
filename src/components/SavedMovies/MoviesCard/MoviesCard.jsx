@@ -9,11 +9,18 @@ function MoviesCard({ movie, onRemove }) {
 
   return (
     <li className="savedMoviesCard">
-      <img
-        src={movie.image}
-        alt={movie.nameRU}
-        className="savedMoviesCard__img"
-      />
+      <a
+        className="savedMoviesCard__imgLink"
+        href={movie.trailerLink}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img
+          src={movie.image}
+          alt={movie.nameRU}
+          className="savedMoviesCard__img"
+        />
+      </a>
       <div className="savedMoviesCard__nameContainer">
         <span className="savedMoviesCard__name">
           {movie.nameRU}

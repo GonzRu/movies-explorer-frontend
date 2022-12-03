@@ -38,11 +38,19 @@ function MoviesCard({ movie }) {
 
   return (
     <li className="moviesCard">
-      <img
-        className="moviesCard__image"
-        src={imageUrl}
-        alt={movie.nameRU}
-      />
+      <a
+        className="moviesCard__imageLink"
+        href={movie.trailerLink}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img
+          className="moviesCard__image"
+          src={imageUrl}
+          alt={movie.nameRU}
+        />
+      </a>
+
       <div className="moviesCard__nameContainer">
         <span className="moviesCard__name">
           {movie.nameRU}
