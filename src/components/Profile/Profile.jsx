@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import './Profile.css';
 import useForm from '../../hooks/useForm';
@@ -11,12 +11,22 @@ function Profile() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [editMode, setEditMode] = useState(false);
+  const [isChanged, setIsChanged] = useState(false);
   const {
     values,
     errors,
     isValid,
     onChange,
   } = useForm({ name: currentUser.name, email: currentUser.email });
+
+  useEffect(() => {
+    if (currentUser.name === values.name
+    && currentUser.email === values.email) {
+      setIsChanged(false);
+    } else {
+      setIsChanged(true);
+    }
+  }, [currentUser, values]);
 
   if (!currentUser) return null;
 
@@ -54,7 +64,7 @@ function Profile() {
         <FormError error={error} />
         <FormButtons
           editMode={editMode}
-          isValid={isValid}
+          isValid={isValid && isChanged}
           isLoading={isLoading}
           onEditClick={onEditClick}
           onLogoutClick={onLogoutClick}
