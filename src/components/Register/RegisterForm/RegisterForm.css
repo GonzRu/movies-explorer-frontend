@@ -8,13 +8,6 @@
     margin-top: 153px;
 }
 
-.registerForm_error {
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 12px;
-    color: #FF4062;
-}
-
 @media screen and (max-width: 1024px) {
     .registerForm__submitBtn {
         margin-top: 40px;

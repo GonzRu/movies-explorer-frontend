@@ -6,6 +6,7 @@ import useForm from '../../../hooks/useForm';
 import mainApi from '../../../utils/MainApi';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
 import { nameValidatorRegexp } from '../../../utils/validatros';
+import Error from '../../Shared/Error/Error';
 
 function RegisterForm() {
   const {
@@ -66,7 +67,9 @@ function RegisterForm() {
         type="password"
         required
       />
-      {error && <span className="registerForm_error">{error}</span>}
+      <Error
+        text={error}
+      />
       <Button
         type="submit"
         className="registerForm__submitBtn"

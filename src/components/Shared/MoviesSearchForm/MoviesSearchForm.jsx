@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './MoviesSearchForm.css';
 import Switch from '../Switch/Switch';
+import Error from '../Error/Error';
 
 function MoviesSearchForm({ onSubmit, filter }) {
   const [search, setSearch] = useState(filter?.search ?? '');
@@ -39,9 +40,7 @@ function MoviesSearchForm({ onSubmit, filter }) {
           />
         </div>
       </div>
-
-      {error && <span className="searchForm__error">{error}</span>}
-
+      <Error text={error} />
       <div className="searchForm__shotSlideWrapper">
         <Switch
           checked={shortOnly}

@@ -12,6 +12,8 @@ import useFilteredMovies from '../../hooks/useFilteredMovies';
 import useStoredFilter from '../../hooks/useStoredFilter';
 import SavedMoviesProvider from './SavedMoviesProvider/SavedMoviesProvider';
 import SavedMoviesContext from '../../contexts/SavedMoviesContext';
+import Error from '../Shared/Error/Error';
+import { GET_MOVIES_ERROR } from '../../utils/errors';
 
 function Movies() {
   const [filter, setFilter] = useStoredFilter();
@@ -50,8 +52,10 @@ function Movies() {
     return (
       <main className="movies">
         <MoviesSearchForm onSubmit={onSubmit} filter={filter} />
-        {/* eslint-disable-next-line max-len */}
-        <span className="movies_error">Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз</span>
+        <Error
+          text={GET_MOVIES_ERROR}
+          className="movies_error"
+        />
       </main>
     );
   }

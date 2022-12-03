@@ -4,6 +4,7 @@ import Button from '../../Shared/Button/Button';
 import './LoginForm.css';
 import useForm from '../../../hooks/useForm';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
+import Error from '../../Shared/Error/Error';
 
 function LoginForm() {
   const { login } = useContext(CurrentUserContext);
@@ -50,7 +51,7 @@ function LoginForm() {
         onValueChanged={onChange}
         type="password"
       />
-      {error && <span className="loginForm_error">{error}</span>}
+      <Error text={error} />
       <Button
         type="submit"
         className="loginForm__submitBtn"
