@@ -8,14 +8,23 @@ function MoviesSearchForm({ onSubmit, filter }) {
   const [shortOnly, setShortOnly] = useState(filter?.shortOnly ?? false);
   const [error, setError] = useState('');
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
+  const submit = (data) => {
     if (!search) {
       setError('Нужно ввести ключевое слово');
       return;
     }
     setError('');
-    onSubmit({ search, shortOnly });
+    onSubmit(data);
+  };
+
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    submit({ search, shortOnly });
+  };
+
+  const onShortOnlyChangeHandler = (value) => {
+    setShortOnly(value);
+    submit({ search, shortOnly: value });
   };
 
   return (
@@ -35,7 +44,7 @@ function MoviesSearchForm({ onSubmit, filter }) {
         <div className="searchForm__wideSliderWrapper">
           <Switch
             checked={shortOnly}
-            onChange={(value) => setShortOnly(value)}
+            onChange={onShortOnlyChangeHandler}
             label="Короткометражки"
           />
         </div>
@@ -44,7 +53,7 @@ function MoviesSearchForm({ onSubmit, filter }) {
       <div className="searchForm__shotSlideWrapper">
         <Switch
           checked={shortOnly}
-          onChange={(value) => setShortOnly(value)}
+          onChange={onShortOnlyChangeHandler}
           label="Короткометражки"
         />
       </div>
