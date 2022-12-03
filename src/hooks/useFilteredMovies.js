@@ -9,7 +9,8 @@ const movieFilter = (movie, filter) => {
     return true;
   }
 
-  return (movie.nameRU.includes(filter.search) || movie.nameEN.includes(filter.search));
+  const search = filter.search.toLowerCase();
+  return (movie.nameRU.toLowerCase().includes(search) || movie.nameEN.toLowerCase().includes(search));
 };
 
 const useFilteredMovies = (movies, filter) => {

@@ -6,7 +6,6 @@ import mainApi from '../../utils/MainApi';
 import Preloader from '../Movies/Preloader/Preloader';
 import useFilteredMovies from '../../hooks/useFilteredMovies';
 import Error from '../Shared/Error/Error';
-import { GET_MOVIES_ERROR } from '../../utils/errors';
 
 function SavedMovies() {
   const [movies, setMovies] = useState([]);
