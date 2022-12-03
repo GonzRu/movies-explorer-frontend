@@ -5,9 +5,15 @@ import Switch from '../Switch/Switch';
 function MoviesSearchForm({ onSubmit, filter }) {
   const [search, setSearch] = useState(filter?.search ?? '');
   const [shortOnly, setShortOnly] = useState(filter?.shortOnly ?? false);
+  const [error, setError] = useState('');
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    if (!search) {
+      setError('Нужно ввести ключевое слово');
+      return;
+    }
+    setError('');
     onSubmit({ search, shortOnly });
   };
 
@@ -33,6 +39,8 @@ function MoviesSearchForm({ onSubmit, filter }) {
           />
         </div>
       </div>
+
+      {error && <span className="searchForm__error">{error}</span>}
 
       <div className="searchForm__shotSlideWrapper">
         <Switch
