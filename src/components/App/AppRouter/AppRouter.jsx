@@ -10,16 +10,17 @@ import Layout from '../Layout/Layout';
 import NotFound from '../../NotFound/NotFound';
 import LayoutWithoutFooter from '../Layout/LayoutWithoutFooter';
 import ProtectedRoute from '../../Shared/ProtectedRoute/ProtectedRoute';
+import UnauthorizedOnlyRoute from '../../Shared/UnauthorizedOnlyRoute/UnauthorizedOnlyRoute';
 
 function AppRouter() {
   return (
     <Switch>
-      <Route exact path="/signin">
+      <UnauthorizedOnlyRoute exact path="/signin">
         <Login />
-      </Route>
-      <Route exact path="/signup">
+      </UnauthorizedOnlyRoute>
+      <UnauthorizedOnlyRoute exact path="/signup">
         <Register />
-      </Route>
+      </UnauthorizedOnlyRoute>
       <Route exact path="/">
         <Layout><Main /></Layout>
       </Route>
