@@ -5,7 +5,7 @@ import './RegisterForm.css';
 import useForm from '../../../hooks/useForm';
 import mainApi from '../../../utils/MainApi';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
-import { nameValidatorRegexp } from '../../../utils/validatros';
+import { emailValidatorRegexp, nameValidatorRegexp } from '../../../utils/validatros';
 import Error from '../../Shared/Error/Error';
 
 function RegisterForm() {
@@ -54,6 +54,7 @@ function RegisterForm() {
         onValueChanged={onChange}
         error={errors.email}
         placeholder="E-mail"
+        pattern={emailValidatorRegexp}
         required
       />
       <InputWithLabel

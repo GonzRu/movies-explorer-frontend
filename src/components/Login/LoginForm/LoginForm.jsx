@@ -5,6 +5,7 @@ import './LoginForm.css';
 import useForm from '../../../hooks/useForm';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
 import Error from '../../Shared/Error/Error';
+import { emailValidatorRegexp } from '../../../utils/validatros';
 
 function LoginForm() {
   const { login } = useContext(CurrentUserContext);
@@ -41,6 +42,7 @@ function LoginForm() {
         value={values.email}
         error={errors.email}
         onValueChanged={onChange}
+        pattern={emailValidatorRegexp}
       />
       <InputWithLabel
         className="loginForm__lastInput"

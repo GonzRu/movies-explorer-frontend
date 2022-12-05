@@ -1,6 +1,6 @@
 import React from 'react';
 import InputWithLabel from '../InputWithLabel/InputWithLabel';
-import { nameValidatorRegexp } from '../../../utils/validatros';
+import { emailValidatorRegexp, nameValidatorRegexp } from '../../../utils/validatros';
 import './FormInputs.css';
 
 function FormInputs({
@@ -29,6 +29,7 @@ function FormInputs({
         onValueChanged={onChange}
         readOnly={!editMode}
         required
+        pattern={emailValidatorRegexp}
       />
     </>
   );
