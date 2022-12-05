@@ -1,21 +1,30 @@
 import {
   useCallback, useEffect, useRef, useState,
 } from 'react';
+import {
+  ADD_MOVIES_COUNT_FOR_DOWN_LIMIT3_WIDTH,
+  ADD_MOVIES_COUNT_FOR_LIMIT1_WIDTH, ADD_MOVIES_COUNT_FOR_LIMIT2_WIDTH, ADD_MOVIES_COUNT_FOR_LIMIT3_WIDTH,
+  INITIAL_MOVIES_COUNT_FOR_DOWN_LIMIT3_WIDTH,
+  INITIAL_MOVIES_COUNT_FOR_LIMIT1_WIDTH, INITIAL_MOVIES_COUNT_FOR_LIMIT2_WIDTH, INITIAL_MOVIES_COUNT_FOR_LIMIT3_WIDTH,
+  MOVIES_WIDTH_LIMIT1,
+  MOVIES_WIDTH_LIMIT2,
+  MOVIES_WIDTH_LIMIT3,
+} from '../consts/movies';
 
 function getInitialCountByWidth(width) {
-  if (width >= 1280) return 12;
-  if (width >= 930) return 9;
-  if (width >= 630) return 8;
+  if (width >= MOVIES_WIDTH_LIMIT1) return INITIAL_MOVIES_COUNT_FOR_LIMIT1_WIDTH;
+  if (width >= MOVIES_WIDTH_LIMIT2) return INITIAL_MOVIES_COUNT_FOR_LIMIT2_WIDTH;
+  if (width >= MOVIES_WIDTH_LIMIT3) return INITIAL_MOVIES_COUNT_FOR_LIMIT3_WIDTH;
 
-  return 5;
+  return INITIAL_MOVIES_COUNT_FOR_DOWN_LIMIT3_WIDTH;
 }
 
 function getAddMoreCountByWidth(width) {
-  if (width >= 1280) return 4;
-  if (width >= 930) return 3;
-  if (width >= 630) return 2;
+  if (width >= MOVIES_WIDTH_LIMIT1) return ADD_MOVIES_COUNT_FOR_LIMIT1_WIDTH;
+  if (width >= MOVIES_WIDTH_LIMIT2) return ADD_MOVIES_COUNT_FOR_LIMIT2_WIDTH;
+  if (width >= MOVIES_WIDTH_LIMIT3) return ADD_MOVIES_COUNT_FOR_LIMIT3_WIDTH;
 
-  return 2;
+  return ADD_MOVIES_COUNT_FOR_DOWN_LIMIT3_WIDTH;
 }
 
 function getCurrentWidth() {

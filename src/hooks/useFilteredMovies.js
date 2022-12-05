@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
+import { SHORT_FILM_MAX_DURATION } from '../consts/movies';
 
 const movieFilter = (movie, filter) => {
-  if (filter.shortOnly && movie.duration > 40) {
+  if (filter.shortOnly && movie.duration > SHORT_FILM_MAX_DURATION) {
     return false;
   }
 
