@@ -4,7 +4,7 @@ import React, {
 import { useHistory } from 'react-router-dom';
 import CurrentUserContext from '../../../contexts/CurrentUserContext';
 import mainApi from '../../../utils/MainApi';
-import { MAIN_ROUTE } from '../../../consts/routes';
+import { MAIN_ROUTE, MOVIES_ROUTE } from '../../../consts/routes';
 import { getToken, removeToken, setToken } from '../../../utils/jwt';
 
 function AuthProvider({ children }) {
@@ -25,7 +25,7 @@ function AuthProvider({ children }) {
     const user = await mainApi.getCurrentUser();
     setCurrentUser(user);
 
-    history.push(MAIN_ROUTE);
+    history.push(MOVIES_ROUTE);
   }, [history]);
 
   const logout = useCallback(() => {
