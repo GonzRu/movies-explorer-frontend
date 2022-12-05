@@ -12,9 +12,14 @@ function AuthProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
 
+  const clearCurrentUser = () => {
+    removeToken();
+    setCurrentUser(null);
+  };
+
   const getCurrentUser = () => mainApi.getCurrentUser()
     .then((user) => setCurrentUser(user))
-    .catch((err) => console.log(err.message));
+    .catch(() => clearCurrentUser());
 
   const login = useCallback(async (data) => {
     const response = await mainApi.signin(data);
@@ -22,15 +27,13 @@ function AuthProvider({ children }) {
 
     setToken(token);
 
-    const user = await mainApi.getCurrentUser();
-    setCurrentUser(user);
+    await getCurrentUser();
 
     history.push(MOVIES_ROUTE);
   }, [history]);
 
   const logout = useCallback(() => {
-    removeToken();
-    setCurrentUser(null);
+    clearCurrentUser();
     history.push(MAIN_ROUTE);
   }, [history]);
 
