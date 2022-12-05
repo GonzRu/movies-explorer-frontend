@@ -37,7 +37,11 @@ function SavedMovies() {
   if (isLoading) {
     return (
       <main className="savedMovies">
-        <MoviesSearchForm onSubmit={onSubmit} filter={filter} />
+        <MoviesSearchForm
+          onSubmit={onSubmit}
+          filter={filter}
+          allowEmptySearch
+        />
         <Preloader />
       </main>
     );
@@ -46,7 +50,7 @@ function SavedMovies() {
   if (error) {
     return (
       <main className="savedMovies">
-        <MoviesSearchForm onSubmit={onSubmit} filter={filter} />
+        <MoviesSearchForm onSubmit={onSubmit} filter={filter} allowEmptySearch />
         <Error text={error} />
       </main>
     );
@@ -54,7 +58,7 @@ function SavedMovies() {
 
   return (
     <main className="savedMovies">
-      <MoviesSearchForm onSubmit={onSubmit} filter={filter} />
+      <MoviesSearchForm onSubmit={onSubmit} filter={filter} allowEmptySearch />
       <MoviesCardList movies={filteredMovies} onRemove={onRemove} />
     </main>
   );

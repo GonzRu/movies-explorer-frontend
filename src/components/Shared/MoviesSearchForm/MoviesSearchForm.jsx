@@ -3,13 +3,13 @@ import './MoviesSearchForm.css';
 import Switch from '../Switch/Switch';
 import Error from '../Error/Error';
 
-function MoviesSearchForm({ onSubmit, filter }) {
+function MoviesSearchForm({ onSubmit, filter, allowEmptySearch = false }) {
   const [search, setSearch] = useState(filter?.search ?? '');
   const [shortOnly, setShortOnly] = useState(filter?.shortOnly ?? false);
   const [error, setError] = useState('');
 
   const submit = (data) => {
-    if (!search) {
+    if (!allowEmptySearch && !search) {
       setError('Нужно ввести ключевое слово');
       return;
     }
