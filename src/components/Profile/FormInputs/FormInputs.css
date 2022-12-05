@@ -1,0 +1,14 @@
+.formInputs__delimiter {
+    border-bottom: #E8E8E8 1px solid;
+    margin: 17px 0;
+}
+
+.formInputs__lastInput {
+    flex: 1;
+}
+
+/*@media screen and (max-width: 540px) {*/
+/*    .formInputs__lastInput {*/
+/*        flex: 1;*/
+/*    }*/
+/*}*/

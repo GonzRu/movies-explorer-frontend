@@ -1,44 +1,80 @@
-import React, { useCallback, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import InputWithLabel from '../../Shared/InputWithLabel/InputWithLabel';
 import Button from '../../Shared/Button/Button';
 import './RegisterForm.css';
+import useForm from '../../../hooks/useForm';
+import mainApi from '../../../utils/MainApi';
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
+import { emailValidatorRegexp, nameValidatorRegexp } from '../../../utils/validatros';
+import Error from '../../Shared/Error/Error';
 
 function RegisterForm() {
-  const [name, setName] = useState('Виталий');
-  const [email, setEmail] = useState('pochta@yandex.ru');
-  const [password, setPassword] = useState('qwertyu');
+  const {
+    values,
+    errors,
+    isValid,
+    onChange,
+  } = useForm({ name: '', email: '', password: '' }, false);
+  const [error, setError] = useState('');
+  const [pending, setPending] = useState(false);
+  const { login } = useContext(CurrentUserContext);
 
-  const onNameChanged = useCallback((value) => setName(value), [setName]);
-  const onEmailChanged = useCallback((value) => setEmail(value), [setEmail]);
-  const onPasswordChanged = useCallback((value) => setPassword(value), [setPassword]);
+  const onSubmit = async (event) => {
+    event.preventDefault();
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+    try {
+      setPending(true);
+      setError('');
+      await mainApi.signup(values);
+      await login({ email: values.email, password: values.password });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setPending(false);
+    }
   };
 
   return (
     <form className="registerForm" onSubmit={onSubmit}>
       <InputWithLabel
         label="Имя"
-        value={name}
-        onValueChanged={onNameChanged}
+        name="name"
+        value={values.name}
+        onValueChanged={onChange}
+        error={errors.name}
+        placeholder="Имя"
+        pattern={nameValidatorRegexp}
+        required
       />
       <InputWithLabel
         label="E-mail"
-        value={email}
-        onValueChanged={onEmailChanged}
+        name="email"
+        type="email"
+        value={values.email}
+        onValueChanged={onChange}
+        error={errors.email}
+        placeholder="E-mail"
+        pattern={emailValidatorRegexp}
+        required
       />
       <InputWithLabel
         className="registerForm__lastInput"
         label="Пароль"
-        value={password}
-        onValueChanged={onPasswordChanged}
+        name="password"
+        value={values.password}
+        onValueChanged={onChange}
+        error={errors.password}
+        placeholder="Пароль"
         type="password"
-        error="Что-то пошло не так..."
+        required
+      />
+      <Error
+        text={error}
       />
       <Button
         type="submit"
         className="registerForm__submitBtn"
+        disabled={!isValid || pending}
       >
         Зарегистрироваться
       </Button>

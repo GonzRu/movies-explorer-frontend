@@ -48,7 +48,15 @@
 
 .searchForm__searchBtn {
     margin-top: 10px;
+    border: none;
+    background: url("../../../images/search-btn.svg") no-repeat center;
+    background-size: 34px 34px;
+    outline: none;
+    width: 34px;
+    height: 34px;
+    padding: 0;
     transition: transform 0.2s linear;
+    cursor: pointer;
 }
 
 .searchForm__searchBtn:hover {

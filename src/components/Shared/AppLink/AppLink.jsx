@@ -8,7 +8,9 @@ function AppLink(props) {
     to,
     children,
     className,
+    activeClassName,
     onClick,
+    ...otherProps
   } = props;
 
   const clickHandler = onClick
@@ -20,12 +22,14 @@ function AppLink(props) {
 
   return (
     <NavLink
-      className={classNames(
+      className={(active) => classNames(
         'appLink',
         className,
+        active && activeClassName,
       )}
       onClick={clickHandler}
       to={onClick ? '/' : to}
+      {...otherProps}
     >
       {children}
     </NavLink>

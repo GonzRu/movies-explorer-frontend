@@ -6,8 +6,9 @@
     padding: 0;
 }
 
-.savedMoviesCard__img {
-
+.savedMoviesCard__imgLink, .savedMoviesCard__img {
+    width: 100%;
+    height: 100%;
 }
 
 .savedMoviesCard__nameContainer {
