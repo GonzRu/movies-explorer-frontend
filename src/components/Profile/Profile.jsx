@@ -5,6 +5,7 @@ import useForm from '../../hooks/useForm';
 import FormInputs from './FormInputs/FormInputs';
 import FormButtons from './FormButtons/FormButtons';
 import FormError from './FormError/FormError';
+import FormUpdatedText from './FormUpdatedText/FormUpdatedText';
 
 function Profile() {
   const { currentUser, logout, updateUser } = useContext(CurrentUserContext);
@@ -12,6 +13,7 @@ function Profile() {
   const [error, setError] = useState('');
   const [editMode, setEditMode] = useState(false);
   const [isChanged, setIsChanged] = useState(false);
+  const [isUpdated, setIsUpdated] = useState(false);
   const {
     values,
     errors,
@@ -30,12 +32,16 @@ function Profile() {
 
   if (!currentUser) return null;
 
-  const onEditClick = () => setEditMode(true);
+  const onEditClick = () => {
+    setEditMode(true);
+    setIsUpdated(false);
+  };
   const onSaveClick = () => {
     setIsLoading(true);
     updateUser(values)
       .then(() => {
         setEditMode(false);
+        setIsUpdated(true);
         setError('');
       })
       .catch((err) => setError(err.message))
@@ -62,6 +68,7 @@ function Profile() {
           editMode={editMode}
         />
         <FormError error={error} />
+        <FormUpdatedText isUpdated={isUpdated} />
         <FormButtons
           editMode={editMode}
           isValid={isValid && isChanged}
