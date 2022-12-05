@@ -6,6 +6,7 @@ import CurrentUserContext from '../../../contexts/CurrentUserContext';
 import mainApi from '../../../utils/MainApi';
 import { MAIN_ROUTE, MOVIES_ROUTE } from '../../../consts/routes';
 import { getToken, removeToken, setToken } from '../../../utils/jwt';
+import { MOVIES_FILTER_LOCALSTORAGE_KEY } from '../../../consts/localStorage';
 
 function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -15,6 +16,7 @@ function AuthProvider({ children }) {
   const clearCurrentUser = () => {
     removeToken();
     setCurrentUser(null);
+    localStorage.removeItem(MOVIES_FILTER_LOCALSTORAGE_KEY);
   };
 
   const getCurrentUser = () => mainApi.getCurrentUser()
